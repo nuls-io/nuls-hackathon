@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: io.nuls.v2:nuls-core-rpc:1.0.0-beta1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/io/nuls/v2/nuls-core-rpc/1.0.0-beta1/nuls-core-rpc-1.0.0-beta1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/io/nuls/v2/nuls-core-rpc/1.0.0-beta1/nuls-core-rpc-1.0.0-beta1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/io/nuls/v2/nuls-core-rpc/1.0.0-beta1/nuls-core-rpc-1.0.0-beta1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -94,6 +94,6 @@
 用户名/密码：13671927739 / 123456
 
 **（4）GITHUB**
-地址： https://github.com/1834924958/ShortVideo
+地址：https://github.com/1834924958/nuls-hackathon/tree/wangdenghui
 
 

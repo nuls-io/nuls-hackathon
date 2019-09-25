@@ -30,6 +30,7 @@ public class MyModule {
         if(!file.exists()){
             file.mkdir();
         }
+        transactionTools.registerTx(startModule(moduleName))
         transactionTools.registerTx(moduleName,Constant.TX_TYPE_CREATE_MAIL_ADDRESS,Constant.TX_TYPE_SEND_MAIL);
         WebServerManager.getInstance().startServer("0.0.0.0", 9999);
         return RpcModuleState.Running;

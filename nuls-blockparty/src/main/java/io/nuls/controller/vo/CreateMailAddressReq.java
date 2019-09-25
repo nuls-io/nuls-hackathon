@@ -5,7 +5,7 @@ package io.nuls.controller.vo;
  * @Time: 2019-06-11 21:10
  * @Description: 功能描述
  */
-public class FirstSectionRequest {
+public class CreateMailAddressReq {
 
     public String mailAddress;
 

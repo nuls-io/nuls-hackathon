@@ -79,7 +79,7 @@ import  io.nuls.rpc.TransactionTools;
  */
 @Path("/")
 @Component
-public class GetBPController implements BaseController {
+public class GetMailController implements BaseController {
 
     @Autowired
     Config config;
@@ -102,6 +102,8 @@ public class GetBPController implements BaseController {
      * @param req
      * @return
      */
+    // rename to GetMailController
+
     @Path("viewMail")
     @Produces(MediaType.APPLICATION_JSON)
     @POST

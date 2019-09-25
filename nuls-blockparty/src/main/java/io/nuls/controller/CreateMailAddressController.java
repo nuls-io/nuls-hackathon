@@ -1,6 +1,6 @@
 package io.nuls.controller;
 
-import io.nuls.controller.vo.FirstSectionRequest;
+import io.nuls.controller.vo.CreateMailAddressReq;
 import io.nuls.core.core.annotation.Component;
 
 import javax.ws.rs.*;
@@ -13,13 +13,13 @@ import javax.ws.rs.core.MediaType;
  */
 @Path("/")
 @Component
-public class FirstSectionController {
+public class CreateMailAddressController {
 
-    @Path("firstLogin")
+    @Path("createMailAddress")
     @Produces(MediaType.APPLICATION_JSON)
     @POST
-    public String createMailAddress(FirstSectionRequest req) {
-        System.out.println("nms just entered: " + "firstLogin");
+    public String createMailAddress(CreateMailAddressReq req) {
+        System.out.println("nms just entered: " + "createMailAddress");
 //        String inAddy = req.address;
 //        String pw = req.password;
         String oBR = "{";

@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>BlockParty</title>
+
+<style>
+@font-face {font-family:'Montserrat';font-style:normal;font-weight:400;src:url(file:///font.woff2);}
+.button_clr{color:#0bca71;}
+a {background-color:transparent;color:inherit;}
+
+.mygradient{background:linear-gradient(to bottom right, #ebffff 0%, #004a6b 90%); z-index:1;text-shadow:.1em .1em .1em #080808;color:white;font-weight:700;font-family:Montserrat, sans-serif;}
+*,*:before,*:after {box-sizing:inherit;}
+body {margin:0;font-family:Verdana,sans-serif;font-size:15px;line-height:1.5;}
+
+a:active, a:hover {outline-width:0;}
+img {border-style:none;}
+hr {box-sizing:content-box;height:0;overflow:visible;}
+button,input,select {font:inherit;margin:0;}
+button,input {overflow:visible;}
+button,select {text-transform:none;}
+button:-moz-focusring {outline:1px dotted ButtonText;}
+h2 {font-size:30px;}
+h3 {font-size:24px;}
+h2,h3 {font-family:"Segoe UI",Arial,sans-serif;font-weight:400;margin:10px 0;}
+h2,h3{font-family:'Montserrat', sans-serif;}
+hr {border:0;border-top:1px solid #eee;margin:20px 0;}
+img{vertical-align:middle;}
+.w3-serif{font-family:serif;}
+.w3-medium {font-size:15px!important;}
+.w3-text-cyan {color:#00bcd4!important;}
+.text-center {text-align:center;}
+.myjumbotron {padding-top:30px;padding-bottom:30px;margin-bottom:30px;color:window;text-align:center;}
+.myjumbotron p {margin-bottom:15px;font-size:21px;font-weight:600;}
+.card {border:none;}
+label {min-width:200px;display:inline-block;text-align:right;vertical-align:top;}
+input {width:540px;}
+.row {padding:15px 7px;}
+.row-btn {padding-left:446px;}
+button {height:52px;width:230px;border-radius:3px;background-color:#708090;color:#fff;font-size:16px;margin-right:0;}
+.left {vertical-align:top;margin-top:25px;padding:10px;list-style-type:none;display:inline-block;width:20%;}
+.left > li {margin:5px;cursor:pointer;line-height:2;}
+.left > li:hover {text-decoration:underline;background-color:#CCFFCC;}
+.right {display:inline-block;padding:10px;width:70%;border-left:1px solid #ddd;}
+.right > div {display:none;}
+.mb-1 {  margin-bottom: 0.25rem !important;}
+.mr-5, .ml-5, .mx-5 {  margin-right: 3rem !important;}
+.mt-2, .my-2 { margin-top: 0.5rem !important; }
+.pb-1, .py-1 { padding-bottom: 0.25rem !important; }
+.pl-5, .px-5 { padding-left: 3rem !important; }
+.pr-5, .px-5 { padding-right: 3rem !important; }
+.pt-2, .py-2 { padding-top: 0.5rem !important; }
+</style>
+</head>
+
+    
+    
+    
+<body>
+<div>
+<div style="font-weight:700!important" class="myjumbotron mb-1 ml-5 mr-5 pb-1 pl-5 pr-5 mt-2 pt-2 mygradient">
+
+    <h2>Welcome to BlockParty!</h2>
+    <p class="w3-medium">This is a simple blockchain app to track trading of <br> small objects
+        and chores among neighbors in any area.
+    </p>
+    <p> It's built with Java and Nuls-io.
+        <br> Learn more about Nuls at <a class="button_clr" href="https://nuls.io">nuls.io</a>
+        and build your own blockchain.
+    </p>
+</div>   <!-- end welcome section -->
+
+
+<div>  <!-- main section -->
+    
+    <!-- left section -->
+ <!-- ==================== begin left section ==================================================  -->
+   
+    <div class="left">
+        <li data-v="create"><a>Log In</a></li>
+        <li data-v="send"><a>Select your Items</a></li>
+    </div>
+ <!-- ==================== end left section ==================================================  -->
+
+<!--                    <li data-v="view"><a>View your Current Balance</a></li>-->
+
+            <!-- ############################################################  -->
+
+<div class="right">   <!-- begin RIGHT: SECTION-->
+        
+<!-- ==================== begin right: VIEW ONE ==================================================  -->
+
+<div id="create">
+    <h3 style="margin-left:32px;color:slategrey;">Log In</h3>
+    <div class="row"><label for="1_address">Your Name :&emsp;</label><input id="1_address" type="text" size="50"  /></div>
+    <div class="row"><label for="1_loginAddress">Your Street :&emsp;</label><input id="1_loginAddress" size="50" /><br></div>
+    <div class="row"><label >Password :&emsp;</label><input id="1_password" type="password"><br></div>
+    <div class="row row-btn"><button id="createLogin" >Login</button></div>
+
+    Your login result is: <br>
+    <label id="1_res"></label>
+</div>
+<br> 
+<!-- ==================== end right-one ==================================================  -->
+
+
+
+<!-- ==================== begin right: VIEW TWO  =============================================  -->
+
+ 
+<div id="send">   <!-- begin right two =======================================  -->
+<!-- ==================== row2**=========  -->
+<h3 style="margin-left:32px;color:slategrey;font-weight:700;">Pay for items</h3><br>  
+
+    <div class="row">     <!-- ==================== right: VIEW TWO select 1 * top=sender =========  -->
+Please select your name:
+        <select id="2_address"  >
+            <option value="">--Choose your name--</option>
+            <option value="tNULSeBaMnrs6JKrCy6TQdzYJZkMZJDng7QAsD">Bella</option>
+            <option value="tNULSeBaMrbMRiFAUeeAt6swb4xVBNyi81YL24">Kathy</option>
+            <option value="tNULSeBaMvEtDfvZuukDf2mVyfGo3DdiN8KLRG">Tony</option>
+            <option value="tNULSeBaMu38g1vnJsSZUCwTDU9GsE5TVNUtpD">Praveen</option>
+            <option value="tNULSeBaMp9wC9PcWEcfesY7YmWrPfeQzkN1xL">Bonnie</option>
+            <option value="tNULSeBaMpEWXCjDc48kdg2ByejY1KuUcZZhaK">Ming</option>
+            <option value="tNULSeBaMshNPEnuqiDhMdSA4iNs6LMgjY6tcL">Ethan</option>
+            <option value="tNULSeBaMoodYW7AqyJrgYdWiJ6nfwfVHHHyXm">Olivia</option>
+            <option value="tNULSeBaMuNfJh79Jbj6HSzMAkaA4AAGwzeSMH">Freddie</option>
+        </select>
+    </div>          <!-- ==================== end select *=========  -->
+
+     <br>  
+Choose your desired item - each item is one token:
+
+    <div class="row">      <!-- =======ITEM=====receiver ======== right: VIEW TWO select 2*=========  -->
+    <select id="2_mailAddress"  >
+        <option value="">--Please choose your Item--</option>
+        <option value="tNULSeBaMnrs6JKrCy6TQdzYJZkMZJDng7QAsD">Bella's apples</option>
+        <option value="tNULSeBaMrbMRiFAUeeAt6swb4xVBNyi81YL24">Kathy's oranges</option>
+        <option value="tNULSeBaMvEtDfvZuukDf2mVyfGo3DdiN8KLRG">Tony's eggs</option>
+        <option value="tNULSeBaMu38g1vnJsSZUCwTDU9GsE5TVNUtpD">Praveen's avocados</option>
+        <option value="tNULSeBaMp9wC9PcWEcfesY7YmWrPfeQzkN1xL">Bonnie Bell peppers </option>
+        <option value="tNULSeBaMpEWXCjDc48kdg2ByejY1KuUcZZhaK">Ming's potatoes</option>
+        <option value="tNULSeBaMshNPEnuqiDhMdSA4iNs6LMgjY6tcL">Ethan's tomatoes</option>
+        <option value="tNULSeBaMoodYW7AqyJrgYdWiJ6nfwfVHHHyXm">Olivia's zucchinis</option>
+        <option value="tNULSeBaMuNfJh79Jbj6HSzMAkaA4AAGwzeSMH">Freddie's spinach</option>
+
+    </select>
+    </div>
+    <br>
+    
+    Choose your pickup day:
+
+    <div class="row">      <!-- ========day====LONG integer ======= right: VIEW TWO select 3*=========  -->
+    <select id="2_content"  > 
+        <option value="">----Please your pickup day--</option>
+        <option value="1">today</option>
+        <option value="2">tomorrow</option>
+        <option value="3">please hold - will notify later</option>
+    </select>
+    </div>
+    <br>  
+
+       <!-- ==================== right: VIEW TWO --- day 2_content   =========  -->
+      Choose how many you would like:
+
+    <div class="row">      <!-- ==========DAY========== right: VIEW TWO select 4*=========  -->
+    <select id="2_title"  > 
+        <option value="">--Please choose how many--</option>
+        <option value=1>1</option>
+        <option value=3>2</option>
+        <option value=3>3</option>
+        <option value=4>4</option>
+        <option value=5>5</option>
+        <option value=6>6</option>
+        <option value=7>7</option>
+        <option value=8>8</option>
+        <option value=9>9</option>
+    </select>
+    </div>
+    <br>
+     <!-- ==================== right: VIEW TWO --- PASSWORD   =========  -->
+
+    <div class="row">      <!-- =======PASSWORD================  -->
+        <label >Your Password : (hint: nuls123456) &emsp;</label>
+
+        <input id="2_password" type="password"  >  
+
+        <br>   
+    </div>
+
+    <!-- ==================== right: VIEW TWO -- BUTTON SUBMIT **=========  -->
+
+        <div class="row row-btn"><button id="sendBP" >Submit</button><br></div>
+        
+        
+     <!-- ==================== right: VIEW TWO -- see RESULT **=========  -->
+    Here is your transaction:
+    <div class="row"><span id="2_res"></span></div>   <!-- show result here -->
+    Here is your new balance:
+    <div class="row"><span id="2b_res"></span></div>   <!-- show result here -->
+    <br>
+    </div>
+
+
+    <!-- END RIGHT: VIEW TWO    ####################     -->
+</div>  <!-- end class RIGHT -->
+
+
+
+
+<!-- ==================== begin right: VIEW THREE - not working yet  ==================================================  -->
+
+
+
+
+    
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>
+
+            function formatJson(msg) {
+                var rep = "~";
+                var jsonStr = JSON.stringify(msg, null, rep)
+                var str = "";
+                for (var i = 0; i < jsonStr.length; i++) {
+                    var text2 = jsonStr.charAt(i)
+                    if (i > 1) {
+                        var text = jsonStr.charAt(i - 1)
+                        if (rep != text && rep == text2) {
+                            str += "<br/>"
+                        }
+                    }
+                    str += text2;
+                }
+                jsonStr = "";
+                for (var i = 0; i < str.length; i++) {
+                    var text = str.charAt(i);
+                    if (rep == text)
+                        jsonStr += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"
+                    else {
+                        jsonStr += text;
+                    }
+                    if (i == str.length - 2)
+                        jsonStr += "<br/>"
+                }
+                return jsonStr;
+            }
+
+            $(function () {
+                $("#create").show();
+                $("#createLogin").click(function () {
+                    var address = $("#1_address").val();
+                    var loginAddy = $("#1_loginAddress").val();
+                    var password = $("#1_password").val();
+                    $.ajax( {
+                        type: "POST",
+                        url: "http://localhost:9999/mail/firstLogin",
+                        data: JSON.stringify( {
+                            "address": address,
+                            "password": password,
+                            "mailAddress": loginAddy
+                        }),
+                        success: function (data) {
+                            console.log(data)
+                            if (data.success) {
+                                $("#1_res").text(data.data);
+                            } else {
+                                $("#1_res").text(data.msg)
+                            }
+                        },
+                        contentType: 'application/json',
+                        dataType: "json"
+                    });
+                });
+                $("#sendBP").click(function () {
+                    var address = $("#2_address").val();
+                    var recAddy = $("#2_mailAddress").val();
+                    var password = $("#2_password").val();
+                    var count = $("#2_title").val();
+                    var content = $("#2_content").val();
+                    $.ajax( {
+                        type: "POST",
+                        url: "http://localhost:9999/mail/sendBP",
+                        data: JSON.stringify( {
+                            "senderAddress": address,
+                            "password": password,
+                            "mailAddress": recAddy,
+                            "title": count,
+                            "content": content
+                        }),
+                        success: function (data) {
+                            console.log(data)
+                            if (data.success) {
+                                $("#2_res").text((data.data)),
+                                $("#2b_res").text((data.msg));
+                            } else {
+                                $("#2_res").text(data.msg)
+                            }
+                        },
+                        contentType: 'application/json',
+                        dataType: "json"
+                    });
+                });
+                $(".left > li").click(function () {
+                    $(".right > div").hide();
+                    $("#" + $(this).data("v")).show();
+                })
+
+            });
+        </script>
+
+        <div class="card mx-auto" style="margin-left:60px;width:75%;">
+            <div class="card-body">
+                <h3 class="card-title w3-text-cyan w3-serif ">Now what?</h3>
+                <hr>
+                <p class="card-text">Show your receipt hash to your neighbor when you go to pick up your traded item.
+                    Please ask the admin to add you if you want to join us. Learn more about Nuls at
+                    <a class="button_clr" href="https://nuls.io">nuls.io</a> and build your own blockchain.
+                </p>
+            </div>
+        </div>
+        <!-- --  Bottom logo ---------------->
+        <div class="myjumbotron text-left ml-5 mr-5 pl-1 pr-5 mygradient"
+             style="padding-top:9px!important;padding-bottom:10px!important;">
+            <span style="position: relative; left: -1px; top: -5px; size:100px 23px;">
+                <img width="200" height="47" src="file:///smlogo.gif"
+                     alt="Schorr Media" style="position: relative; top: 0;"/>
+            </span>
+            <span style="font-size:20px;font-weight:500;padding-left:200px;">Thank you for using BlockParty!</span>
+        </div>
+        
+        
+    </body>
+    
+</html>

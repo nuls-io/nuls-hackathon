@@ -1,0 +1,11 @@
+[Core]
+APP_NAME=nuls-blockparty
+VERSION=1.0.0
+Managed=1
+
+[APP_NAME=nuls-blockparty]
+chainId=2
+assetId=1
+mailAddressFee=100000000
+sendMailFee=50000000
+dataPath=data

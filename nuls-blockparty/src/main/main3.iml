@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../NULS_WALLET/Modules/Nuls">
+      <sourceFolder url="file://$MODULE_DIR$/../../../NULS_WALLET/Modules/Nuls/mykernel" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../NULS_WALLET/Modules/Nuls/libs" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../NULS_WALLET/Modules/Nuls/account" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../NULS_WALLET/Modules/Nuls/block" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../NULS_WALLET/Modules/Nuls/cmd-client" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../NULS_WALLET/Modules/Nuls/consensus" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../NULS_WALLET/Modules/Nuls/ledger" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../NULS_WALLET/Modules/Nuls/nuls-blockparty" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../NULS_WALLET/Modules/Nuls/network" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../NULS_WALLET/Modules/Nuls/transaction" type="java-resource" />
+    </content>
+    <content url="file://$MODULE_DIR$/..">
+      <sourceFolder url="file://$MODULE_DIR$/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java/io" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java/io/nuls" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java/io/nuls/controller" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java/io/nuls/rpc" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java/io/nuls/service" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java/io/nuls/txhander" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java/io/nuls/rpc/vo" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java/io/nuls/service/dto" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java/io/nuls/controller/core" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/java/io/nuls/controller/vo" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/.." isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$" isTestSource="false" />
+    </content>
+    <content url="jar://$MODULE_DIR$/../../../NULS_WALLET/Modules/Nuls/account/1.0.0/account-1.0.0.jar!/" />
+    <content url="jar://$MODULE_DIR$/../../../NULS_WALLET/Modules/Nuls/block/1.0.0/block-1.0.0.jar!/" />
+    <content url="jar://$MODULE_DIR$/../../../NULS_WALLET/Modules/Nuls/consensus/1.0.0/consensus-1.0.0.jar!/" />
+    <content url="jar://$MODULE_DIR$/../../../NULS_WALLET/Modules/Nuls/ledger/1.0.0/ledger-1.0.0.jar!/" />
+    <content url="jar://$MODULE_DIR$/../../../NULS_WALLET/Modules/Nuls/nuls-blockparty/1.0.0/nuls-blockparty-1.0.0.jar!/" />
+    <content url="jar://$MODULE_DIR$/../../../NULS_WALLET/Modules/Nuls/mykernel/1.0.0/mykernel-1.0.0.jar!/" />
+    <content url="jar://$MODULE_DIR$/../../../NULS_WALLET/Modules/Nuls/network/1.0.0/network-1.0.0.jar!/" />
+    <content url="jar://$MODULE_DIR$/../../../NULS_WALLET/Modules/Nuls/transaction/1.0.0/transaction-1.0.0.jar!/" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="libs14" level="project" />
+    <orderEntry type="library" name="libs15" level="project" />
+    <orderEntry type="library" name="target6" level="project" />
+    <orderEntry type="library" name="lib1" level="project" />
+    <orderEntry type="library" name="libs2" level="project" />
+    <orderEntry type="library" name="libs21" level="project" />
+    <orderEntry type="library" name="libs7" level="project" />
+    <orderEntry type="library" name="target1" level="project" />
+    <orderEntry type="library" name="libs31" level="project" />
+    <orderEntry type="library" name="libs9" level="project" />
+    <orderEntry type="library" name="libs8" level="project" />
+    <orderEntry type="library" name="libs12" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="libs24" level="project" />
+    <orderEntry type="library" name="target3" level="project" />
+    <orderEntry type="library" name="libs27" level="project" />
+    <orderEntry type="library" name="libs20" level="project" />
+    <orderEntry type="library" name="libs25" level="project" />
+    <orderEntry type="library" name="libs6" level="project" />
+    <orderEntry type="library" name="libs16" level="project" />
+    <orderEntry type="library" name="libs28" level="project" />
+    <orderEntry type="library" name="libs18" level="project" />
+    <orderEntry type="library" name="libs29" level="project" />
+    <orderEntry type="library" name="libs4" level="project" />
+    <orderEntry type="library" name="libs11" level="project" />
+    <orderEntry type="library" name="libs19" level="project" />
+    <orderEntry type="library" name="libs10" level="project" />
+    <orderEntry type="library" name="libs13" level="project" />
+    <orderEntry type="library" name="libs3" level="project" />
+    <orderEntry type="library" name="libs5" level="project" />
+    <orderEntry type="library" name="libs30" level="project" />
+    <orderEntry type="library" name="libs17" level="project" />
+    <orderEntry type="library" name="libs22" level="project" />
+    <orderEntry type="library" name="libs1" level="project" />
+    <orderEntry type="library" name="libs23" level="project" />
+    <orderEntry type="library" name="libs26" level="project" />
+    <orderEntry type="library" name="libs" level="project" />
+    <orderEntry type="module" module-name="test13" />
+    <orderEntry type="module" module-name="main19" />
+    <orderEntry type="module" module-name="main26" />
+    <orderEntry type="module" module-name="main9" />
+  </component>
+</module>

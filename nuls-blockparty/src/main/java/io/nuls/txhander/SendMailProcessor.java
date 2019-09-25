@@ -41,7 +41,7 @@ public class SendMailProcessor implements TransactionProcessor {
 
     @Override
     public int getType() {
-        return Constant.TX_TYPE_SEND_BP;
+        return Constant.TX_TYPE_SEND_MAIL;
     }
 
     @Override

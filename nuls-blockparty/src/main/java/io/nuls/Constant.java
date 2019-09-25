@@ -9,6 +9,5 @@ public class Constant {
 
     public static final int TX_TYPE_CREATE_MAIL_ADDRESS = 200;
     public static final int TX_TYPE_SEND_MAIL = 201;
-   /// public static final int TX_TYPE_SEND_BP = 201;
     public static final String BLACK_HOLE_ADDRESS = "tNULSeBaMtsumpXhfEZBU2pMEz7SHLcx5b2TQr";
 }

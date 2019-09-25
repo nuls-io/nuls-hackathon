@@ -44,7 +44,7 @@ public class MailAddressProcessor implements TransactionProcessor {
 
     @Override
     public boolean validate(int chainId, Transaction tx, BlockHeader blockHeader) {
-        Log.debug("validate tx", (Object) tx.getTxData());
+        Log.debug("validate tx", tx.getTxData());
         //验证交易hash是否一致
         try {
             NulsHash nulsHash = NulsHash.calcHash(tx.serializeForHash());

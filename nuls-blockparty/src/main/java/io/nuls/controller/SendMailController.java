@@ -1,6 +1,5 @@
 package io.nuls.controller;
 
-import io.nuls.core.constant.ErrorCode;
 import io.nuls.service.MailAddressService;
 import io.nuls.core.crypto.ECKey;
 import io.nuls.core.exception.NulsException;
@@ -148,20 +147,19 @@ public class SendMailController implements BaseController {
         Optional<MailAddressData> recAddressData_OPT = myGroup.getValue4();
         byte[] senderAddressBytes = myGroup.getValue5();
         byte[] receiverAddressBytes = myGroup.getValue6();
-        ErrorCode cccERR = CommonCodeConstanst.PARAMETER_ERROR;
 
         if (senderAddyData_OPT.isEmpty()) {
-            throw new NulsRuntimeException(cccERR, "can't find sender address: " + senderAddy_STR);
+            throw new NulsRuntimeException(CommonCodeConstanst.PARAMETER_ERROR, "can't find sender address: " + senderAddy_STR);
         }
         if (recAddressData_OPT.isEmpty()) {
-            throw new NulsRuntimeException(cccERR, "can't find receiver address: " + receiverAddy_STR);
+            throw new NulsRuntimeException(CommonCodeConstanst.PARAMETER_ERROR, "can't find receiver address: " + receiverAddy_STR);
         }
         if (Arrays.equals(receiverAddressBytes, senderAddressBytes)) {
-            throw new NulsRuntimeException(cccERR, "sender equals receiver");
+            throw new NulsRuntimeException(CommonCodeConstanst.PARAMETER_ERROR, "sender equals receiver");
         }
 
             Transaction tx = new Transaction();
-            tx.setType(Constant.TX_TYPE_SEND_BP);
+            tx.setType(Constant.TX_TYPE_SEND_MAIL);
             tx.setTime(NulsDateUtils.getCurrentTimeSeconds());
 
             byte[] txData = buildTxData(myGroup);
@@ -186,6 +184,9 @@ public class SendMailController implements BaseController {
         byte[] senderAddress_BTS = myGroup.getValue5();
         byte[] receiverAddress_BTS = myGroup.getValue6();
         MailAddressData sendAdd_DATA = senderAddyData_OPT.get();
+        if (senderAddyData_OPT.isEmpty()) {
+            throw new NulsRuntimeException(CommonCodeConstanst.PARAMETER_ERROR, "can't find sender address: " + senderAddyData_OPT);
+        }
         MailAddressData recAdd_DATA = recAddressData_OPT.get();
         String senderPubKey_STR =  sendAdd_DATA.getPubKey();
         String recPubKey_STR =  recAdd_DATA.getPubKey();

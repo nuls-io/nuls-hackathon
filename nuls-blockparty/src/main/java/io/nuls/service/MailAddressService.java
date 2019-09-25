@@ -101,10 +101,9 @@ public class MailAddressService {
         file.createNewFile();
         BufferedWriter writer = new BufferedWriter(new FileWriter(file));
         for (MailAddressData d : data) {
-            String item = new StringBuilder()
-                    .append(d.getAddress()).append(SPLIT)
-                    .append(d.getMailAddress()).append(SPLIT)
-                    .append(d.getPubKey()).append(SPLIT).toString();
+            String item = d.getAddress() + SPLIT +
+                    d.getMailAddress() + SPLIT +
+                    d.getPubKey() + SPLIT;
             writer.write(item);
             writer.newLine();
         }

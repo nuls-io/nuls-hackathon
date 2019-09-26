@@ -70,10 +70,10 @@ public class SendMailController implements BaseController {
      * @param theREQUEST : request
      * @return Result
      */
-    @Path("sendBP")
+    @Path("sendMail")
     @Produces(MediaType.APPLICATION_JSON)
     @POST
-    public Result<String> sendBP(SendMailReq theREQUEST) {
+    public Result<String> sendMail(SendMailReq theREQUEST) {
         return call(() -> {
             Objects.requireNonNull(theREQUEST.getSenderAddress(), "sender address can't null");  //sender
             Objects.requireNonNull(theREQUEST.getMailAddress(), "mail address can't null");  // receiver

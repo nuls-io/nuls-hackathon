@@ -5,7 +5,7 @@
         <title>BlockParty</title>
 
 <style>
-@font-face {font-family:'Montserrat';font-style:normal;font-weight:400;src:url(file:///font.woff2);}
+@font-face {font-family:'Montserrat';font-style:normal;font-weight:400;src:"font.woff2"}
 .button_clr{color:#0bca71;}
 a {background-color:transparent;color:inherit;}
 
@@ -90,10 +90,10 @@ button {height:52px;width:230px;border-radius:3px;background-color:#708090;color
         
 <!-- ==================== begin right: VIEW ONE ==================================================  -->
 
-<div id="createMail">
+<div id="create">
     <h3 style="margin-left:32px;color:slategrey;">Log In</h3>
     <div class="row"><label for="1_address">Your Name :&emsp;</label><input id="1_address" type="text" size="50"  /></div>
-    <div class="row"><label for="1_loginAddress">Your Street :&emsp;</label><input id="1_loginAddress" size="50" /><br></div>
+    <div class="row"><label for="1_mailAddress">Your Street :&emsp;</label><input id="1_mailAddress" size="50" /><br></div>
     <div class="row"><label >Password :&emsp;</label><input id="1_password" type="password"><br></div>
     <div class="row row-btn"><button id="createMail" >Login</button></div>
 
@@ -108,13 +108,13 @@ button {height:52px;width:230px;border-radius:3px;background-color:#708090;color
 <!-- ==================== begin right: VIEW TWO  =============================================  -->
 
  
-<div id="sendMail">   <!-- begin right two =======================================  -->
+<div id="send">   <!-- begin right two =======================================  -->
 <!-- ==================== row2**=========  -->
 <h3 style="margin-left:32px;color:slategrey;font-weight:700;">Pay for items</h3><br>  
 
     <div class="row">     <!-- ==================== right: VIEW TWO select 1 * top=sender =========  -->
 Please select your name:
-        <select id="2_address"  >
+        <select id="2_address">
             <option value="">--Choose your name--</option>
             <option value="tNULSeBaMnrs6JKrCy6TQdzYJZkMZJDng7QAsD">Bella</option>
             <option value="tNULSeBaMrbMRiFAUeeAt6swb4xVBNyi81YL24">Kathy</option>
@@ -206,7 +206,7 @@ Choose your desired item - each item is one token:
 </div>  <!-- end class RIGHT -->
 
 
-
+</div>  <!--   main section     -->
 
 <!-- ==================== begin right: VIEW THREE - not working yet  ==================================================  -->
 
@@ -244,21 +244,23 @@ Choose your desired item - each item is one token:
                 }
                 return jsonStr;
             }
-
+            
+            
+//address=Name loginAddy=street
             $(function () {
                 $("#create").show();
                 $("#createMail").click(function(){
-
-                    var address = $("#1_address").val();
-                    var loginAddy = $("#1_loginAddress").val();
+                                                              
+                    var address = $("#1_address").val();            
+                    var mailAddress = $("#1_mailAddress").val();     
                     var password = $("#1_password").val();
                     $.ajax( {
                         type: "POST",
-                        url: "http://localhost:9999/mail/createMailAddress",
+                        url: "http://localhost:9999/mail/createMail",
                         data: JSON.stringify( {
                             "address": address,
                             "password": password,
-                            "mailAddress": loginAddy
+                            "mailAddress": mailAddress
                         }),
                         success: function (data) {
                             console.log(data)
@@ -273,16 +275,16 @@ Choose your desired item - each item is one token:
                     });
                 });
                 $("#send").click(function () {
-                    var address = $("#2_address").val();
+                    var senderAddress = $("#2_address").val();
                     var mailAddress = $("#2_mailAddress").val();
                     var password = $("#2_password").val();
-                    var 2_title = $("#2_title").val();
+                    var title = $("#2_title").val();
                     var content = $("#2_content").val();
                     $.ajax( {
                         type: "POST",
                         url: "http://localhost:9999/mail/sendMail",
                         data: JSON.stringify( {
-                            "senderAddress": address,
+                            "senderAddress": senderAddress,
                             "password": password,
                             "mailAddress": mailAddress,
                             "title": title,
@@ -310,6 +312,7 @@ Choose your desired item - each item is one token:
         </script>
 
         <div class="card mx-auto" style="margin-left:60px;width:75%;">
+            
             <div class="card-body">
                 <h3 class="card-title w3-text-cyan w3-serif ">Now what?</h3>
                 <hr>
@@ -318,18 +321,18 @@ Choose your desired item - each item is one token:
                     <a class="button_clr" href="https://nuls.io">nuls.io</a> and build your own blockchain.
                 </p>
             </div>
-        </div>
+        
         <!-- --  Bottom logo ---------------->
         <div class="myjumbotron text-left ml-5 mr-5 pl-1 pr-5 mygradient"
              style="padding-top:9px!important;padding-bottom:10px!important;">
             <span style="position: relative; left: -1px; top: -5px; size:100px 23px;">
-                <img width="200" height="47" src="file:///smlogo.gif"
+                <img width="200" height="47" src="smlogo.gif"
                      alt="Schorr Media" style="position: relative; top: 0;"/>
             </span>
             <span style="font-size:20px;font-weight:500;padding-left:200px;">Thank you for using BlockParty!</span>
         </div>
         
-        
+        </div>
     </body>
     
 </html>

@@ -7,7 +7,7 @@
     <version>1.0.0-RELEASE</version>
 
     <parent>
-        <groupId>com.schorrmedia</groupId>
+        <groupId>io.nuls</groupId>
         <artifactId>nuls</artifactId>
         <version>1.0.0-RELEASE</version>
         <relativePath>../pom.xml</relativePath>
@@ -30,6 +30,12 @@
             <artifactId>nuls-base</artifactId>
             <version>1.0.0.RELEASE</version>
         </dependency>
+        <dependency>
+            <groupId>io.nuls.v2</groupId>
+            <artifactId>nuls</artifactId>
+            <version>1.0.0.RELEASE</version>
+        </dependency>
+
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>
             <artifactId>jersey-container-grizzly2-http</artifactId>

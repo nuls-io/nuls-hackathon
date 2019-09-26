@@ -3,9 +3,6 @@ io/nuls/controller/vo/GetMailListReq.class
 io/nuls/rpc/vo/Account.class
 io/nuls/rpc/LegderTools.class
 io/nuls/controller/core/BaseController$Caller.class
-io/nuls/controller/core/NulsResourceConfig$CORSFilter.class
-io/nuls/Utils.class
-io/nuls/service/dto/MailAddress.class
 io/nuls/controller/CreateMailAddressController.class
 io/nuls/controller/GetMailController.class
 io/nuls/txhander/TransactionDispatcher$Handler.class
@@ -23,7 +20,6 @@ io/nuls/rpc/AccountTools.class
 io/nuls/rpc/CallRpc.class
 io/nuls/Config.class
 io/nuls/controller/core/BaseController.class
-io/nuls/controller/core/NulsResourceConfig.class
 io/nuls/controller/vo/SendMailReq.class
 io/nuls/MyModule.class
 io/nuls/controller/vo/ViewMailReq.class
@@ -31,6 +27,5 @@ io/nuls/controller/vo/MailContentData.class
 io/nuls/NulsModuleBootstrap.class
 io/nuls/controller/vo/CreateMailAddressReq.class
 io/nuls/rpc/vo/AccountBalance.class
-io/nuls/controller/SendMailController.class
 io/nuls/txhander/TransactionDispatcher.class
 io/nuls/service/dto/MailContent.class

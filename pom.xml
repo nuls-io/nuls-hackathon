@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.schorrmedia</groupId>
+    <version>1.0.0-RELEASE</version>
+    <artifactId>nuls</artifactId>
+    <name>Nuls-Blockparty Parent POM</name>
+
+    <developers>
+        <developer>
+            <id>nmschorr</id>
+            <name>Nancy M. Schorr</name>
+            <url>https://schorrmedia.com</url>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>America/California</timezone>
+        </developer>
+    </developers>
+
+
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <java.version>11</java.version>
+        <core.version>1.0.0-SNAPSHOT</core.version>
+        <base.version>1.0.0-SNAPSHOT</base.version>
+        <release.version>1.0.0-RELEASE</release.version>
+        <snapshot.version>1.0.0-SNAPSHOT</snapshot.version>
+        <this.version>${snapshot.version}</this.version>
+        <name>Nuls-Blockparty Parent</name>
+        <slf4j.version>1.7.26</slf4j.version>
+        <logback.version>1.2.3</logback.version>
+    </properties>
+
+</project>

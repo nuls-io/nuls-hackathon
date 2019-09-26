@@ -5,9 +5,9 @@ import io.nuls.core.crypto.ECKey;
 import io.nuls.core.exception.NulsException;
 import io.nuls.core.exception.NulsRuntimeException;
 import io.nuls.core.rpc.util.NulsDateUtils;
-import io.nuls.rpc.AccountTools;
+//import io.nuls.rpc.AccountTools;
 import io.nuls.rpc.LegderTools;
-import io.nuls.rpc.TransactionTools;
+//import io.nuls.rpc.TransactionTools;
 import io.nuls.rpc.vo.AccountBalance;
 import io.nuls.base.data.BlockHeader;
 import io.nuls.Config;
@@ -157,6 +157,8 @@ public class SendMailController implements BaseController {
         if (Arrays.equals(receiverAddressBytes, senderAddressBytes)) {
             throw new NulsRuntimeException(CommonCodeConstanst.PARAMETER_ERROR, "sender equals receiver");
         }
+        Account account = new Account();
+
         Transaction tx = new Transaction();
         String a = account.getEncryptedPrikeyHex();
         String h = account.getPubkeyHex();

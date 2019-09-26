@@ -90,12 +90,12 @@ button {height:52px;width:230px;border-radius:3px;background-color:#708090;color
         
 <!-- ==================== begin right: VIEW ONE ==================================================  -->
 
-<div id="create">
+<div id="createMail">
     <h3 style="margin-left:32px;color:slategrey;">Log In</h3>
     <div class="row"><label for="1_address">Your Name :&emsp;</label><input id="1_address" type="text" size="50"  /></div>
     <div class="row"><label for="1_loginAddress">Your Street :&emsp;</label><input id="1_loginAddress" size="50" /><br></div>
     <div class="row"><label >Password :&emsp;</label><input id="1_password" type="password"><br></div>
-    <div class="row row-btn"><button id="createLogin" >Login</button></div>
+    <div class="row row-btn"><button id="createMail" >Login</button></div>
 
     Your login result is: <br>
     <label id="1_res"></label>
@@ -108,7 +108,7 @@ button {height:52px;width:230px;border-radius:3px;background-color:#708090;color
 <!-- ==================== begin right: VIEW TWO  =============================================  -->
 
  
-<div id="send">   <!-- begin right two =======================================  -->
+<div id="sendMail">   <!-- begin right two =======================================  -->
 <!-- ==================== row2**=========  -->
 <h3 style="margin-left:32px;color:slategrey;font-weight:700;">Pay for items</h3><br>  
 
@@ -190,7 +190,7 @@ Choose your desired item - each item is one token:
 
     <!-- ==================== right: VIEW TWO -- BUTTON SUBMIT **=========  -->
 
-        <div class="row row-btn"><button id="sendBP" >Submit</button><br></div>
+        <div class="row row-btn"><button id="sendMail" >Submit</button><br></div>
         
         
      <!-- ==================== right: VIEW TWO -- see RESULT **=========  -->
@@ -247,13 +247,14 @@ Choose your desired item - each item is one token:
 
             $(function () {
                 $("#create").show();
-                $("#createLogin").click(function () {
+                $("#createMail").click(function(){
+
                     var address = $("#1_address").val();
                     var loginAddy = $("#1_loginAddress").val();
                     var password = $("#1_password").val();
                     $.ajax( {
                         type: "POST",
-                        url: "http://localhost:9999/mail/firstLogin",
+                        url: "http://localhost:9999/mail/createMailAddress",
                         data: JSON.stringify( {
                             "address": address,
                             "password": password,
@@ -271,20 +272,20 @@ Choose your desired item - each item is one token:
                         dataType: "json"
                     });
                 });
-                $("#sendBP").click(function () {
+                $("#send").click(function () {
                     var address = $("#2_address").val();
-                    var recAddy = $("#2_mailAddress").val();
+                    var mailAddress = $("#2_mailAddress").val();
                     var password = $("#2_password").val();
-                    var count = $("#2_title").val();
+                    var 2_title = $("#2_title").val();
                     var content = $("#2_content").val();
                     $.ajax( {
                         type: "POST",
-                        url: "http://localhost:9999/mail/sendBP",
+                        url: "http://localhost:9999/mail/sendMail",
                         data: JSON.stringify( {
                             "senderAddress": address,
                             "password": password,
-                            "mailAddress": recAddy,
-                            "title": count,
+                            "mailAddress": mailAddress,
+                            "title": title,
                             "content": content
                         }),
                         success: function (data) {

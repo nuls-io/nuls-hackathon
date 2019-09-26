@@ -20,8 +20,8 @@ io/nuls/Constant.class
 io/nuls/rpc/TransactionTools.class
 io/nuls/service/SendMailService.class
 io/nuls/rpc/AccountTools.class
-io/nuls/Config.class
 io/nuls/rpc/CallRpc.class
+io/nuls/Config.class
 io/nuls/controller/core/BaseController.class
 io/nuls/controller/core/NulsResourceConfig.class
 io/nuls/controller/vo/SendMailReq.class

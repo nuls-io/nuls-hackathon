@@ -15,7 +15,6 @@ CommPort=7779
 IP=127.0.0.1
 
 [Output]
-
 LogLevel=4
 
 [Security]

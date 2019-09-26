@@ -1,5 +1,6 @@
 package io.nuls;
 
+import io.nuls.core.core.annotation.Value;
 import io.nuls.core.core.annotation.Configuration;
 
 import java.io.File;

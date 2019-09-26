@@ -1,5 +1,10 @@
 # module.ncf
 [nuls-blockparty]
+chainId=2
+assetId=1
+mailAddressFee=100000000
+sendMailFee=50000000
+dataPath=data
 
 [JAVA]
 

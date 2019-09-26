@@ -9,10 +9,12 @@ import io.nuls.rpc.AccountTools;
 import io.nuls.rpc.LegderTools;
 import io.nuls.rpc.TransactionTools;
 import io.nuls.rpc.vo.AccountBalance;
+import io.nuls.base.data.BlockHeader;
 import io.nuls.Config;
 import io.nuls.Constant;
 import io.nuls.base.RPCUtil;
 import io.nuls.base.basic.TransactionFeeCalculator;
+import io.nuls.base.data.BlockHeader;
 import io.nuls.base.data.CoinData;
 import io.nuls.base.data.CoinFrom;
 import io.nuls.base.data.CoinTo;
@@ -104,7 +106,6 @@ public class SendMailController implements BaseController {
                             senderAddy_OPT, recAddy_OPT,
                             senderAddy_BYTES, receiverAddy_BYTES, itemCOUNT_BI, firstCOST);
 
-
             AccountBalance senderAcctBal_AB = legderTools.getBalanceAndNonce(chainId, senderAddyStr, chainId, assetId);
             System.out.println("nms senderBal at start:  " + senderAcctBal_AB);
 
@@ -128,18 +129,17 @@ public class SendMailController implements BaseController {
         });
     }
 
-    //      ####################################################################################     -->
-
-
     /**
      *
      */
-
     private Transaction createSendMailTransaction(SendMailReq request,
               Ennead<String, String,   String,
                       Optional<MailAddressData>, Optional<MailAddressData>,
                       byte[],byte[], BigInteger, BigInteger> myGroup )
             throws IOException, NulsException {
+
+        int chainId = config.getChainId();
+        int assetId = config.getAssetId();
 
         String senderAddy_STR = myGroup.getValue1();
         String receiverAddy_STR = myGroup.getValue2();
@@ -157,27 +157,38 @@ public class SendMailController implements BaseController {
         if (Arrays.equals(receiverAddressBytes, senderAddressBytes)) {
             throw new NulsRuntimeException(CommonCodeConstanst.PARAMETER_ERROR, "sender equals receiver");
         }
+        Transaction tx = new Transaction();
+        String a = account.getEncryptedPrikeyHex();
+        String h = account.getPubkeyHex();
+        signTransaction = Utils.signTransaction(tx, a, h, password);
 
-            Transaction tx = new Transaction();
-            tx.setType(Constant.TX_TYPE_SEND_MAIL);
-            tx.setTime(NulsDateUtils.getCurrentTimeSeconds());
+        System.out.println("nms transaction sig: " + Arrays.toString(transaction.getTransactionSignature()));
+        tx.setType(Constant.TX_TYPE_SEND_MAIL);
+        tx.setTime(NulsDateUtils.getCurrentTimeSeconds());
 
-            byte[] txData = buildTxData(myGroup);
-            byte[] cd = buildCoinData(tx, myGroup);
-
-            tx.setTxData(txData);
-            tx.setCoinData(cd);
-            System.out.println("nms transaction signature in Transaction(): " +
-                    Arrays.toString(tx.getTransactionSignature()));
-            return tx;
+        byte[] txData = buildTxData(myGroup);
+        byte[] cd = buildCoinData(tx, myGroup);
+        String blockHeaderStr = (String) params.get("blockHeader");
+        BlockHeader blockHeader = null;
+        if (StringUtils.isNotBlank(blockHeaderStr)) {
+            blockHeader = RPCUtil.getInstanceRpcStr(blockHeaderStr, BlockHeader.class);
         }
+        tx.setTxData(txData);
+        tx.setCoinData(cd);
+        ValidateResult validateResult = transactionService.unConfirmTxProcess(chainId, tx);
+
+        System.out.println("nms transaction signature in Transaction(): " +
+                Arrays.toString(tx.getTransactionSignature()));
+
+        int x = commit(chainId, tx, blockHeader);
+        return tx;
+    }
 
 
     private byte[] buildTxData(Ennead<String, String, String,
             Optional<MailAddressData>, Optional<MailAddressData>,
             byte[], byte[],
-            BigInteger, BigInteger>
-                                       myGroup)  throws IOException {
+            BigInteger, BigInteger> myGroup) throws IOException {
 
         Optional<MailAddressData> senderAddyData_OPT = myGroup.getValue3();
         Optional<MailAddressData> recAddressData_OPT = myGroup.getValue4();
@@ -188,8 +199,8 @@ public class SendMailController implements BaseController {
             throw new NulsRuntimeException(CommonCodeConstanst.PARAMETER_ERROR, "can't find sender address: " + senderAddyData_OPT);
         }
         MailAddressData recAdd_DATA = recAddressData_OPT.get();
-        String senderPubKey_STR =  sendAdd_DATA.getPubKey();
-        String recPubKey_STR =  recAdd_DATA.getPubKey();
+        String senderPubKey_STR = sendAdd_DATA.getPubKey();
+        String recPubKey_STR = recAdd_DATA.getPubKey();
 
         ECKey key = new ECKey();
         byte[] pubkey = key.getPubKey();
@@ -228,12 +239,14 @@ public class SendMailController implements BaseController {
         BigInteger avail_BI =  sendAcctBal_OBJ.getAvailable();
         byte[] nonce = RPCUtil.decode(sendAcctBal_OBJ.getNonce());
         CoinFrom coinFrom = new CoinFrom();
+
         coinFrom.setAddress(senderAddressBytes);
         coinFrom.setAssetsChainId(chId);
         coinFrom.setAssetsId(asId);
         coinFrom.setAmount(firstCost);
         coinFrom.setLocked(locked);
         coinFrom.setNonce(nonce);
+
         CoinTo coinTo = new CoinTo(receiverAddressBytes, chId, asId, firstCost);
         coinTo.setAddress(receiverAddressBytes);
 
@@ -245,6 +258,7 @@ public class SendMailController implements BaseController {
             throw new NulsRuntimeException(CommonCodeConstanst.FAILED, "insufficient fee");
         }
         coinFrom.setAmount(totalCostPlusFee_BI);
+
         CoinData coinData = new CoinData();
         coinData.setFrom(List.of(coinFrom));
         coinData.setTo(List.of(coinTo));
@@ -253,4 +267,3 @@ public class SendMailController implements BaseController {
     }
 
 }
-

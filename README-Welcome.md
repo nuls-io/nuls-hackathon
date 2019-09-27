@@ -1,4 +1,4 @@
-### Welcome to Blockparty!
+#Welcome to Blockparty!
 
 The idea here is to show a simple app using blockchain (via Nuls) to record transactions among neighbors so they can trade goods and services.
 
@@ -25,45 +25,46 @@ Another slight caveat happening is the accounts for the people Kathy, Bella, Oli
 
 As of Sept 27 2019 the transactions in this app are almost going through. I need to finish one step which is the commit.  There is also general code cleanup to be done.
 
-##### My impressions of Nuls
+### My Experience Coding with Nuls
 Wow, amazing. It's hard to believe a loosely organized open-source, international group of people have this giant code-base not only working but available for everyone. The transactions, encryption, data flow etc are all functional. Clearly the expertise of the developers was very advanced to begin with. In this project you will find:
 
-    Abstract Classes, Interfaces
-    Collections – List, Map, Set etc.
-    File IO, Serialization, JSON
-    Spring, Annotations and Optionals
-    Multithreading and Synchronization
-    Generics; Dependency Injection, Lambda's
-    Servers, Servlets, Sockets
-    Web Technologies - HTML, REST, CSS, Javascript, JQuery and Ajax
+- Abstract Classes, Interfaces
+- Collections – List, Map, Set etc.
+- File IO, Serialization, JSON
+- Spring, Annotations and Optionals
+- Multithreading and Synchronization
+- Generics; Dependency Injection, Lambda's
+- Servers, Servlets, Sockets
+- Web Technologies - HTML, REST, CSS, Javascript, JQuery and Ajax
 
-_**Some Things I Changed from Chainbox_**
+###Some Things I Changed from Chainbox
 
-Much of the code was difficult to read at first since it was both unfamiliar, and frankly - I gave up on Java and have been using Python more and more over the past few years. Going back to Java was a little bit painful. But I found I enjoyed the 'sturdy' feeling of something that won't tie itself together unless it's developers really "make it so". A lot of the technology around Java like profiling and debugging are very advanced. 
+Much of the code was difficult to read at first since it was both unfamiliar, and frankly - I had given up on Java and have been using Python more and more over the past few years. Going back to Java was a little bit painful. But I found I enjoyed the 'sturdy' feeling of something that won't tie itself together unless it's developers really "make it so". Also, much of the technology around Java - like profiling and debugging - are very advanced. 
 
-A lot of the code had been condensed so that it was pretty to look at -  but difficult to step through with a debugger. So I undid a lot of the function calls within function calls, etc. I also moved functionality around a little bit so that the main working parts were more together. Since my app doesn't send email - in the future I'd like to remove some of that if posssible.
+A lot of the Chainbox code had been condensed so that it was fast, lightweight, efficient - but difficult to step through with a debugger for learning purposes. So I undid a lot of the function calls within function calls, etc. I also moved functionality around a little bit so that the main working parts were more together. 
 
-Startup Instructions:
+Since my app doesn't send email - in the future I'd like to remove some of that and other extraneous code if posssible.
 
 
-### 1 Environment
+#### Startup Instructions
+
 - Linux or MacOS
 - Git
 - Maven
 - JDK11
-Java must be set in the $PATH environment variable.
+- Set Java in the $PATH
 
 ```
 git clone git@github.com:nmschorr/nuls-hackathon.git
 ```
 Change directory to the `nuls-blockparty` directory:
 ```
-cd nuls-blockparty   # enter the example folder
+cd nuls-blockparty  
 ```
-Run the command to build the nuls-blockparty module:
+Run the first build command:
 
 ```
-package    # execute the build script (provided by the template)
+package
 ```
 
 If successful, you will find the `outer` folder generated in `nuls-blockparty`.
@@ -74,15 +75,15 @@ Go back to the project root directory:
 cd ..
 ```
 
-Run the command:
+Run the second build command:
 
 ```
 tools -p nuls-blockparty
 ```
 
-The `NULS-WALLET` folder will be created in the main directory. It contains NULS environment, logs, data and runnable classes and jars.
+The `NULS-WALLET` folder will be created in the main directory. It contains the NULS environment, logs, data and runnable classes and jars.
 
-Execute the following command in the `NULS-WALLET` directory:
+Execute the following in the `NULS-WALLET` directory:
 
 ```
 start-dev
@@ -95,14 +96,25 @@ The nuls.ncf is created during the first execution of the command. Re-enter the 
 start-dev
 ```
 
-Now that the node is started, we need to import the default block address of the seed node so that the node can begin to produce blocks. **This is very important. If you miss this step, or enter the wrong details, the seed node will not begin building blocks and this app will not work.**
+
+Now that the node is started, we need to import the default block address of the seed node so that the node can begin to produce blocks. 
+
+**This is very important. If you miss this step, or enter the wrong details, the seed node will not begin building blocks and this app will not work.**
 
 In shell, run:
 
 ```
 cmd
+```
+and when you have a "nuls>>>" prompt enter:
+
+
+```
 import b54db432bba7e13a6c4a28f65b925b18e63bcb79143f7b894fa735d5d3d09db5
-(and when prompted for password) enter
+```
+and when prompted for password enter:
+
+```
 nuls123456
 ```
 
@@ -126,10 +138,18 @@ The accounts 'tNULSeBaMnrs6JKrCy6TQdzYJZkMZJDng7QAsD' and 'tNULSeBaMrbMRiFAUeeAt
 
 If you wish to enable the rest of the accounts to match the web page, here are the entries:
 
+<sub><sup>
 tNULSeBaMvEtDfvZuukDf2mVyfGo3DdiN8KLRG;tony;9ce21dad67e0f0af2599b41b515a7f7018059418bab892a7b68f283d489abc4b;
+
 tNULSeBaMu38g1vnJsSZUCwTDU9GsE5TVNUtpD;praveen;020e19418ed26700b0dba720dcc95483cb4adb1b5f8a103818dab17d5b05231854;
+
 tNULSeBaMp9wC9PcWEcfesY7YmWrPfeQzkN1xL;bonnie; bec819ef7d5beeb1593790254583e077e00f481982bce1a43ea2830a2dc4fdf7;
+
 tNULSeBaMpEWXCjDc48kdg2ByejY1KuUcZZhaK;ming;02d27d576e911d1beb218dd3bef6d5c2f96c8de21ff6cc02b799cb6e3f6709f48b;
+
 tNULSeBaMshNPEnuqiDhMdSA4iNs6LMgjY6tcL;ethan;ddddb7cb859a467fbe05d5034735de9e62ad06db6557b64d7c139b6db856b200;
+
 tNULSeBaMoodYW7AqyJrgYdWiJ6nfwfVHHHyXm;olivia;4efb6c23991f56626bc77cdb341d64e891e0412b03cbcb948aba6d4defb4e60a;
+
 tNULSeBaMuNfJh79Jbj6HSzMAkaA4AAGwzeSMH;freddie;0369132c3272148f1635e2f3d8a0fd9c09598e450c41e4b9a0a3f86c88b38e4fa7;
+</sub></sup>

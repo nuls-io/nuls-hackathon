@@ -15,7 +15,7 @@ import javax.ws.rs.core.MediaType;
 @Component
 public class CreateMailAddressController {
 
-    @Path("createMailAddress")
+    @Path("createMail")
     @Produces(MediaType.APPLICATION_JSON)
     @POST
     public String createMailAddress(CreateMailAddressReq req) {

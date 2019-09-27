@@ -2,6 +2,8 @@ package io.nuls.txhander;
 
 import io.nuls.Config;
 import io.nuls.Constant;
+import io.nuls.base.api.provider.Result;
+import io.nuls.base.api.provider.block.facade.BlockHeaderData;
 import io.nuls.base.basic.AddressTool;
 import io.nuls.base.basic.NulsByteBuffer;
 import io.nuls.base.data.*;
@@ -38,6 +40,8 @@ public class SendMailProcessor implements io.nuls.txhander.TransactionProcessor 
 
     @Autowired
     LegderTools legderTools;
+
+
 
     @Override
     public int getType() {
@@ -114,6 +118,13 @@ public class SendMailProcessor implements io.nuls.txhander.TransactionProcessor 
         }
         return true;
     }
+
+//    @Override
+//    public static int commit(int chainId, Transaction tx2, Result<BlockHeaderData> blockHeader) {
+//
+//    }
+//
+//
 
     @Override
     public boolean rollback(int chainId, Transaction tx,BlockHeader blockHeader) {

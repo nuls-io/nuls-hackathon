@@ -1,5 +1,6 @@
 package io.nuls.controller;
 
+import io.nuls.base.api.provider.Provider;
 import io.nuls.txhander.SendMailProcessor;
 import io.nuls.core.constant.BaseConstant;
 import io.nuls.core.model.StringUtils;
@@ -140,8 +141,10 @@ public class SendMailController implements BaseController {
 
             long blockHeight = tx2.getBlockHeight();
             BlockService blockService = ServiceManager.get(BlockService.class);
+
             io.nuls.base.api.provider.Result<BlockHeaderData> blockHeaderD;
-            blockHeaderD = blockService.getBlockHeaderByHeight(new GetBlockHeaderByHeightReq(blockHeight));
+            ServiceManager.init(2, Provider.ProviderType.RPC);
+            //blockHeaderD = blockService.getBlockHeaderByHeight(new GetBlockHeaderByHeightReq(blockHeight));
 
             AccountBalance newSenderBal_AB = legderTools.getBalanceAndNonce(chainId, senderAddyStr, chainId, assetId);
             BigInteger senderAvailBal_BI = newSenderBal_AB.getAvailable();

@@ -136,6 +136,12 @@ tNULSeBaMrbMRiFAUeeAt6swb4xVBNyi81YL24
 ```
 The accounts 'tNULSeBaMnrs6JKrCy6TQdzYJZkMZJDng7QAsD' and 'tNULSeBaMrbMRiFAUeeAt6swb4xVBNyi81YL24' are now available.
 
+Once the 8 java modules are running, you can use the app by directly opening this file in your browser:
+
+ ****<blockparty-app-directory>/NULS-WALLET/Modules/Nuls/nuls-blockparty/1.0.0/nuls-blockparty.html****
+
+Remember, only the Kathy and Bella accounts are functioning if you set them up as above. Only the Kathy account will have a balance.  You need to use the cli 'cmd' to transfer funds to the other 'people' if you wish to use them. 
+
 If you wish to enable the rest of the accounts to match the web page, here are the entries:
 
 <sub><sup>

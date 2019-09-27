@@ -117,7 +117,9 @@ public class SendMailController implements BaseController {
             senderAddy_OPT = mailAddressService.getMailAddress(senderAddyStr);
             recAddy_OPT = mailAddressService.getMailAddress(recMailAddyStr);
 
-            BigInteger itemCOUNT_BI = new BigInteger(count);
+            long countLong = Long.parseLong(count);
+            BigInteger itemCOUNT_BI = BigInteger.valueOf(countLong);
+
             BigInteger costPerItem = BigInteger.valueOf(Long.parseLong("0000000112221111"));
             BigInteger firstCOST = costPerItem.multiply(itemCOUNT_BI);  // subtract from sender, add to receiver
 

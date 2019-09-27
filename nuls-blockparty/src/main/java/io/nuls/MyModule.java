@@ -1,5 +1,7 @@
 package io.nuls;
 
+import io.nuls.base.api.provider.Provider;
+import io.nuls.base.api.provider.ServiceManager;
 import io.nuls.controller.core.WebServerManager;
 import io.nuls.core.core.annotation.Autowired;
 import io.nuls.core.core.annotation.Component;
@@ -30,6 +32,9 @@ public class MyModule {
         if(!file.exists()){
             file.mkdir();
         }
+
+        ServiceManager.init(2, Provider.ProviderType.RPC);
+
         transactionTools.registerTx(moduleName,Constant.TX_TYPE_CREATE_MAIL_ADDRESS,Constant.TX_TYPE_SEND_MAIL);
         WebServerManager.getInstance().startServer("0.0.0.0", 9999);
         return RpcModuleState.Running;

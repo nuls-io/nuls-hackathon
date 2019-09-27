@@ -82,7 +82,16 @@ public class SendMailService implements InitializingBean {
     Config config;
 
     @Autowired
-    io.nuls.service.MailAddressService mailAddressService;
+    AccountTools accountTools;
+
+    @Autowired
+    LegderTools legderTools;
+
+    @Autowired
+    TransactionTools transactionTools;
+
+    @Autowired
+    MailAddressService mailAddressService;
 
     /**
      * 保存一封邮件

@@ -25,7 +25,7 @@ import java.util.List;
  * @Description: 功能描述
  */
 @Component
-public class SendMailProcessor implements TransactionProcessor {
+public class SendMailProcessor implements io.nuls.txhander.TransactionProcessor {
 
     @Autowired
     MailAddressService mailAddressService;

@@ -15,11 +15,29 @@ import io.nuls.core.rpc.info.Constants;
 import io.nuls.core.rpc.model.CmdAnnotation;
 import io.nuls.core.rpc.model.Parameter;
 import io.nuls.core.rpc.model.message.Response;
-
+import io.nuls.base.RPCUtil;
+import io.nuls.base.data.BlockHeader;
+import io.nuls.base.data.Transaction;
+import io.nuls.core.constant.BaseConstant;
+import io.nuls.core.constant.CommonCodeConstanst;
+import io.nuls.core.core.annotation.Autowired;
+import io.nuls.core.core.annotation.Component;
+import io.nuls.core.log.Log;
+import io.nuls.core.model.ObjectUtils;
+import io.nuls.core.model.StringUtils;
+import io.nuls.core.rpc.cmd.BaseCmd;
+import io.nuls.core.rpc.info.Constants;
+import io.nuls.core.rpc.model.CmdAnnotation;
+import io.nuls.core.rpc.model.Parameter;
+import io.nuls.core.rpc.model.message.Response;
+import io.nuls.txhander.MailAddressProcessor;
+import io.nuls.txhander.SendMailProcessor;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import io.nuls.txhander.TransactionProcessor;
+
 
 /**
  * 交易分发器
@@ -44,11 +62,12 @@ public final class TransactionDispatcher extends BaseCmd {
 
 
     private TransactionProcessor getProcessor(int txType) {
-        if (txType == mailAddressProcessor.getType()) {
+
+        if (txType == 200) {
             return mailAddressProcessor;
         }
-        if (txType == sendMailProcessor.getType()) {
-            return sendMailProcessor;
+        if (txType == 201) {
+            return (TransactionProcessor) sendMailProcessor;
         }
         throw new RuntimeException("不支持的txType：" + txType);
     }

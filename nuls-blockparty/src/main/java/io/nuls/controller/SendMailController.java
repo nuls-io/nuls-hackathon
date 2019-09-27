@@ -1,20 +1,30 @@
 package io.nuls.controller;
 
+import io.nuls.core.constant.BaseConstant;
+import io.nuls.core.model.StringUtils;
+import io.nuls.core.rpc.model.CmdAnnotation;
+import io.nuls.core.rpc.model.Parameter;
+import io.nuls.core.rpc.model.message.Response;
 import io.nuls.service.MailAddressService;
+
 import io.nuls.core.crypto.ECKey;
 import io.nuls.core.exception.NulsException;
 import io.nuls.core.exception.NulsRuntimeException;
 import io.nuls.core.rpc.util.NulsDateUtils;
-//import io.nuls.rpc.AccountTools;
+import io.nuls.rpc.AccountTools;
 import io.nuls.rpc.LegderTools;
-//import io.nuls.rpc.TransactionTools;
+import io.nuls.rpc.TransactionTools;
+import io.nuls.rpc.vo.Account;
+import io.nuls.base.api.provider.account.*;
 import io.nuls.rpc.vo.AccountBalance;
 import io.nuls.base.data.BlockHeader;
 import io.nuls.Config;
 import io.nuls.Constant;
 import io.nuls.base.RPCUtil;
 import io.nuls.base.basic.TransactionFeeCalculator;
-import io.nuls.base.data.BlockHeader;
+import io.nuls.base.data.Block;
+import io.nuls.base.data.BaseNulsData;
+import io.nuls.base.data.po.BlockHeaderPo;
 import io.nuls.base.data.CoinData;
 import io.nuls.base.data.CoinFrom;
 import io.nuls.base.data.CoinTo;
@@ -30,6 +40,12 @@ import io.nuls.core.core.annotation.Autowired;
 import io.nuls.core.core.annotation.Component;
 import io.nuls.core.crypto.ECIESUtil;
 import io.nuls.core.crypto.HexUtil;
+import io.nuls.core.rpc.model.Parameter;
+import io.nuls.base.api.provider.block.facade.GetBlockHeaderByHeightReq;
+import io.nuls.base.api.provider.block.facade.GetBlockHeaderByLastHeightReq;
+import io.nuls.base.api.provider.Result;
+import io.nuls.base.api.provider.block.facade.BlockHeaderData;
+
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -39,9 +55,15 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
-
-import org.javatuples.*;
 import java.lang.System;
+import org.javatuples.*;
+import io.nuls.base.api.provider.ServiceManager;
+import io.nuls.base.api.provider.block.BlockService;
+import io.nuls.test.cases.BaseTestCase;
+
+
+
+
 
 /**
  * @author nmschorr based on code from zhoulijun
@@ -75,6 +97,10 @@ public class SendMailController implements BaseController {
     @Path("sendMail")
     @Produces(MediaType.APPLICATION_JSON)
     @POST
+//    @CmdAnnotation(cmd = BaseConstant.TX_VALIDATOR, version = 1.0, description = "")
+//    @Parameter(parameterName = "chainId", parameterType = "int")
+//    @Parameter(parameterName = "txList", parameterType = "List")
+//    @Parameter(parameterName = "blockHeader", parameterType = "String")
     public Result<String> sendMail(SendMailReq theREQUEST) {
         return call(() -> {
             Objects.requireNonNull(theREQUEST.getSenderAddress(), "sender address can't null");  //sender
@@ -107,14 +133,28 @@ public class SendMailController implements BaseController {
                             senderAddy_BYTES, receiverAddy_BYTES, itemCOUNT_BI, firstCOST);
 
             AccountBalance senderAcctBal_AB = legderTools.getBalanceAndNonce(chainId, senderAddyStr, chainId, assetId);
-            System.out.println("nms senderBal at start:  " + senderAcctBal_AB);
-
+            System.out.println("nms senderBal before signing:  " + senderAcctBal_AB);
+            Account account = accountTools.getAccountByAddress(recMailAddyStr);
             Transaction the_TX = createSendMailTransaction(theREQUEST,  mainObject_JTUP);
+            //Signature alias transaction
 
-            String txHash_STR = the_TX.getHash().toHex();
+            Transaction tx2 = signTransaction(the_TX, account, password);
+            long blockHeight = tx2.getBlockHeight();
+            BlockService blockService = ServiceManager.get(BlockService.class);
+
+            io.nuls.base.api.provider.Result<BlockHeaderData> blockHeader =
+                    blockService.getBlockHeaderByHeight(new GetBlockHeaderByHeightReq(blockHeight));
+
+
+            String blockHeaderStr = blockHeader.toString();
+//            if (StringUtils.isNotBlank(blockHeaderStr)) {
+//                blockHeader = RPCUtil.getInstanceRpcStr(blockHeaderStr, BlockHeader.class);
+//            }
+
+            String txHash_STR = tx2.getHash().toHex();
             AccountBalance newSenderBal_AB = legderTools.getBalanceAndNonce(chainId, senderAddyStr, chainId, assetId);
             BigInteger senderAvailBal_BI = newSenderBal_AB.getAvailable();
-            System.out.println("nms sendBal after before conversion:  " + senderAvailBal_BI);
+            System.out.println("nms sendBal after signing:  " + senderAvailBal_BI);
 
             Result finalResult = new Result<>(txHash_STR);
             finalResult.setSuccess(true);
@@ -162,7 +202,6 @@ public class SendMailController implements BaseController {
         Transaction tx = new Transaction();
         String a = account.getEncryptedPrikeyHex();
         String h = account.getPubkeyHex();
-        signTransaction = Utils.signTransaction(tx, a, h, password);
 
         System.out.println("nms transaction sig: " + Arrays.toString(transaction.getTransactionSignature()));
         tx.setType(Constant.TX_TYPE_SEND_MAIL);
@@ -175,14 +214,13 @@ public class SendMailController implements BaseController {
         if (StringUtils.isNotBlank(blockHeaderStr)) {
             blockHeader = RPCUtil.getInstanceRpcStr(blockHeaderStr, BlockHeader.class);
         }
+        int x = commit(chainId, tx, blockHeader);
         tx.setTxData(txData);
         tx.setCoinData(cd);
-        ValidateResult validateResult = transactionService.unConfirmTxProcess(chainId, tx);
 
         System.out.println("nms transaction signature in Transaction(): " +
                 Arrays.toString(tx.getTransactionSignature()));
 
-        int x = commit(chainId, tx, blockHeader);
         return tx;
     }
 

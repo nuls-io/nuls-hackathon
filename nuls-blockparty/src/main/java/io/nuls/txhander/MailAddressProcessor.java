@@ -26,7 +26,7 @@ import java.util.List;
  * @Description: 邮件地址存储交易处理器
  */
 @Component
-public class MailAddressProcessor implements TransactionProcessor {
+public class MailAddressProcessor implements io.nuls.txhander.TransactionProcessor {
 
     @Autowired
     MailAddressService mailAddressService;

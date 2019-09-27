@@ -25,6 +25,49 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import io.nuls.Config;
+import io.nuls.Constant;
+import io.nuls.base.RPCUtil;
+import io.nuls.base.basic.AddressTool;
+import io.nuls.base.basic.TransactionFeeCalculator;
+import io.nuls.base.data.CoinData;
+import io.nuls.base.data.CoinFrom;
+import io.nuls.base.data.CoinTo;
+import io.nuls.base.data.Transaction;
+import io.nuls.base.signture.P2PHKSignature;
+import io.nuls.controller.core.BaseController;
+import io.nuls.controller.core.Result;
+import io.nuls.controller.vo.MailAddressData;
+import io.nuls.service.dto.MailContent;
+import io.nuls.controller.vo.SendMailReq;
+import io.nuls.core.constant.CommonCodeConstanst;
+import io.nuls.core.core.annotation.Autowired;
+import io.nuls.core.core.annotation.Component;
+import io.nuls.core.crypto.ECIESUtil;
+import io.nuls.core.crypto.ECKey;
+import io.nuls.core.crypto.HexUtil;
+import io.nuls.core.exception.NulsException;
+import io.nuls.core.exception.NulsRuntimeException;
+import io.nuls.core.rpc.util.NulsDateUtils;
+import io.nuls.rpc.AccountTools;
+import io.nuls.rpc.LegderTools;
+import io.nuls.rpc.TransactionTools;
+import io.nuls.rpc.vo.Account;
+import io.nuls.rpc.vo.AccountBalance;
+import io.nuls.service.MailAddressService;
+
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import java.io.IOException;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
+
 /**
  * @Author: zhoulijun
  * @Time: 2019-06-12 11:55
@@ -39,7 +82,7 @@ public class SendMailService implements InitializingBean {
     Config config;
 
     @Autowired
-    MailAddressService mailAddressService;
+    io.nuls.service.MailAddressService mailAddressService;
 
     /**
      * 保存一封邮件

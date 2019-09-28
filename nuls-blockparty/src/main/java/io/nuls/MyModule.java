@@ -2,6 +2,7 @@ package io.nuls;
 
 import io.nuls.base.api.provider.Provider;
 import io.nuls.base.api.provider.ServiceManager;
+import io.nuls.base.api.provider.block.BlockService;
 import io.nuls.controller.core.WebServerManager;
 import io.nuls.core.core.annotation.Autowired;
 import io.nuls.core.core.annotation.Component;
@@ -32,6 +33,7 @@ public class MyModule {
         if(!file.exists()){
             file.mkdir();
         }
+
 
         ServiceManager.init(2, Provider.ProviderType.RPC);
 

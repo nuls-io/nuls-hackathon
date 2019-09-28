@@ -1,6 +1,9 @@
 package io.nuls.controller;
 
+import io.nuls.base.api.provider.BaseReq;
 import io.nuls.base.api.provider.Provider;
+import io.nuls.base.api.provider.transaction.facade.TransferReq;
+import io.nuls.base.data.*;
 import io.nuls.txhander.SendMailProcessor;
 import io.nuls.core.constant.BaseConstant;
 import io.nuls.core.model.StringUtils;
@@ -16,21 +19,19 @@ import io.nuls.core.rpc.util.NulsDateUtils;
 import io.nuls.rpc.AccountTools;
 import io.nuls.rpc.LegderTools;
 import io.nuls.rpc.TransactionTools;
+import io.nuls.txhander.TransactionDispatcher;
+import io.nuls.base.api.provider.Result;
+
+
+
 import io.nuls.rpc.vo.Account;
 import io.nuls.base.api.provider.account.*;
 import io.nuls.rpc.vo.AccountBalance;
-import io.nuls.base.data.BlockHeader;
 import io.nuls.Config;
 import io.nuls.Constant;
 import io.nuls.base.RPCUtil;
 import io.nuls.base.basic.TransactionFeeCalculator;
-import io.nuls.base.data.Block;
-import io.nuls.base.data.BaseNulsData;
 import io.nuls.base.data.po.BlockHeaderPo;
-import io.nuls.base.data.CoinData;
-import io.nuls.base.data.CoinFrom;
-import io.nuls.base.data.CoinTo;
-import io.nuls.base.data.Transaction;
 import io.nuls.base.signture.P2PHKSignature;
 import io.nuls.controller.core.BaseController;
 import io.nuls.controller.core.Result;
@@ -61,6 +62,7 @@ import java.lang.System;
 import org.javatuples.*;
 import io.nuls.base.api.provider.ServiceManager;
 import io.nuls.base.api.provider.block.BlockService;
+import io.nuls.base.api.provider.transaction.TransferService;
 
 
 /**
@@ -133,20 +135,82 @@ public class SendMailController implements BaseController {
                             senderAddy_BYTES, receiverAddy_BYTES, itemCOUNT_BI, firstCOST);
 
             AccountBalance senderAcctBal_AB = legderTools.getBalanceAndNonce(chainId, senderAddyStr, chainId, assetId);
-            System.out.println("nms senderBal before signing:  " + senderAcctBal_AB);
+            System.out.println("nms senderBal before signing:  " + senderAcctBal_AB.getAvailable());
             Account account = accountTools.getAccountByAddress(recMailAddyStr);
-
             Transaction the_TX = createSendMailTransaction(theREQUEST,  mainObject_JTUP);
-
             Transaction tx2 = signTransaction(the_TX, account, password);
 
+//            Map<String, Object> params = new HashMap();
+//            params.put("version", "1.0");
+//            //params.put("act", method);
+//            params.put("address1", senderAddyStr);
+//            params.put("address2", recMailAddyStr);
+
+            TransferReq.TransferReqBuilder builder = new TransferReq.TransferReqBuilder(2,1);
+            builder.addForm(senderAddyStr,password, firstCOST).addTo(recMailAddyStr,firstCOST);
+            TransferReq transferReq = builder.build();
+            Result<String> result = transferService.transfer(builder);
+            TransferService transferService = ServiceManager.get(TransferService.class)
+
+
+
+
+//
+//            List<io.nuls.base.api.provider.transaction.facade.TransferReq.Item> inputs;
+//            List<io.nuls.base.api.provider.transaction.facade.TransferReq.Item> outputs;
+//            TransferReq.TransferReqBuilder builder = new TransferReq.TransferReqBuilder(2);
+//            item = builder.addForm(2,1, recMailAddyStr, senderAddyStr,firstCOST);
+//            builder.addTo(recMailAddyStr, firstCOST);
+
+
+//                    public TransferReq.TransferReqBuilder addTo(String address, BigInteger amount) {
+//                        this.outputs.add(new TransferReq.Item(this.chainId, this.assetsId, address, amount));
+//                        return this;
+//
+            br2.
+
+
+            inputs[] = new TransferReq.Item(2, 1, senderAddyStr, firstCOST);
+
+            String remark;
+
+
+            //TransactionDispatcher td = new TransactionDispatcher();
+
+           // Response commit;
+            //commit = td.txCommit(tx2.
+//            BlockService blockService = ServiceManager.get(BlockService.class);
+//            NulsHash x = tx2.getHash();
+//            blockService.getBlockHeaderByHash(x);
 
             long blockHeight = tx2.getBlockHeight();
             BlockService blockService = ServiceManager.get(BlockService.class);
 
-            io.nuls.base.api.provider.Result<BlockHeaderData> blockHeaderD;
-            ServiceManager.init(2, Provider.ProviderType.RPC);
-            //blockHeaderD = blockService.getBlockHeaderByHeight(new GetBlockHeaderByHeightReq(blockHeight));
+            io.nuls.base.api.provider.Result<BlockHeaderData> blockHeaderData;
+            TransactionDispatcher txd = new io.nuls.txhander.TransactionDispatcher();
+
+            blockHeaderData = blockService.getBlockHeaderByHeight(new GetBlockHeaderByHeightReq(blockHeight));
+            String blockHeaderStr = blockHeaderData.toString();
+           // txd.
+            ///txd.txCommit(chainId,tx2,blockHeaderStr);
+
+
+            //ServiceManager.init(2, Provider.ProviderType.RPC);  done in MyModule
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
             AccountBalance newSenderBal_AB = legderTools.getBalanceAndNonce(chainId, senderAddyStr, chainId, assetId);
             BigInteger senderAvailBal_BI = newSenderBal_AB.getAvailable();

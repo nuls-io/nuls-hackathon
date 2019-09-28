@@ -170,7 +170,7 @@ JAVA_OPTS=" -server -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -Xms${JOPT_XMS}m -Xmx${
 JAVA_OOM_DUMP="-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=${LOGS_DIR}/oom-${START_DATE}.hprof"
 JAVA_OPTS="$JAVA_OPTS $JAVA_GC_LOG $JAVA_OOM_DUMP  -Dapp.name=$APP_NAME ${logpath} ${datapath} "
 echo "${JAVA} ${JAVA_OPTS} ${CLASSPATH} ${MAIN_CLASS} ${NulstarUrl}"
-CMD="${JAVA} ${JAVA_OPTS} ${DBG} ${CLASSPATH} ${MAIN_CLASS} ${NulstarUrl} "
+CMD="${JAVA} ${JAVA_OPTS} ${CLASSPATH} ${MAIN_CLASS} ${NulstarUrl} "
 CMD="${CMD} > ${STDOUT_FILE}"
 CMD="$CMD 2>&1 & ";
 eval $CMD

@@ -162,9 +162,9 @@ public class SendMailController implements BaseController {
             io.nuls.controller.core.Result newResult = new Result();
             boolean b = myResult.isSuccess();
             newResult.setSuccess(myResult.isSuccess());
-            newResult.setSuccess(myResult.isSuccess());
-            newResult.setSuccess(myResult.isSuccess());
-            return result;
+            newResult.setMsg(myResult.getMessage());
+            newResult.setData(myResult.getData());
+            return newResult;
         });
     }
 

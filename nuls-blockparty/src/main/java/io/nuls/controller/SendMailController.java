@@ -134,8 +134,8 @@ public class SendMailController implements BaseController {
             String recMailAddyStr = theREQUEST.getMailAddress();
             String password = theREQUEST.getPassword();
             String count = theREQUEST.getTitle();
-            int chainId = config.getChainId();
-            int assetId = config.getAssetId();
+            Integer chainId = config.getChainId();
+            Integer assetId = config.getAssetId();
             byte[] receiverAddy_BYTES = senderAddyStr.getBytes();
             byte[] senderAddy_BYTES = recMailAddyStr.getBytes();
             Optional<MailAddressData> recAddy_OPT, senderAddy_OPT;
@@ -158,8 +158,9 @@ public class SendMailController implements BaseController {
             AccountBalance senderAcctBal_AB = legderTools.getBalanceAndNonce(chainId, senderAddyStr, chainId, assetId);
             System.out.println("nms senderBal before signing:  " + senderAcctBal_AB.getAvailable());
 
-            String[] myArgs = {"senderAddyStr", "recMailAddyStr", "firstVal"};
-            io.nuls.base.api.provider.Result myResult= myBuildTransferReq(myArgs);
+            String[] myArgs = {senderAddyStr, recMailAddyStr, firstVal};
+
+            io.nuls.base.api.provider.Result myResult= myBuildTransferReq(myArgs, chainId, assetId);
             io.nuls.controller.core.Result newResult = new Result();
             boolean b = myResult.isSuccess();
             newResult.setSuccess(myResult.isSuccess());
@@ -173,22 +174,23 @@ public class SendMailController implements BaseController {
      * //https://github.com/nuls-io/nuls-v2/blob/221c3c3007c78cc04b28f5068aa0c28e27cc3a6e/module/nuls-cmd-client/src/main/java/io/nuls/cmd/client/processor/transaction/TransferProcessor.java
      * @return
      */
-    private io.nuls.base.api.provider.Result myBuildTransferReq(String[] args) {
+    private io.nuls.base.api.provider.Result myBuildTransferReq(String[] args, Integer tempChainId, Integer tempAssetId) {
         String formAddress = args[0];
         String toAddress = args[1];
         String password = "nuls123456";
+
         BigInteger amount = new BigInteger(args[2]);  //nms changed from orig
-        TransferReq.TransferReqBuilder builder =
-                new TransferReq.TransferReqBuilder(1, 1)
-                        .addForm(formAddress, password, amount)
-                        .addTo(toAddress, amount);
+        TransferReq.TransferReqBuilder transferReqBuilder;
+        transferReqBuilder = new TransferReq.TransferReqBuilder(tempChainId, tempAssetId);
+        transferReqBuilder.addForm(formAddress, password, amount)
+                .addTo(toAddress, amount);
         if (args.length == 5) {
-            builder.setRemark(args[4]);
+            transferReqBuilder.setRemark(args[4]);
         }
-        final TransferReq testBuildOnly = builder.build(new TransferReq());
         TransferService transferService = ServiceManager.get(TransferService.class);
         io.nuls.base.api.provider.Result apiResult;
-        apiResult = transferService.transfer(builder.build(new TransferReq()));
+        TransferReq trr = new TransferReq();
+        apiResult = transferService.transfer(transferReqBuilder.build(trr));
         return apiResult;
     }
 

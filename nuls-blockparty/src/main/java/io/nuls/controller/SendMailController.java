@@ -141,6 +141,7 @@ public class SendMailController implements BaseController {
             Optional<MailAddressData> recAddy_OPT, senderAddy_OPT;
             senderAddy_OPT = mailAddressService.getMailAddress(senderAddyStr);
             recAddy_OPT = mailAddressService.getMailAddress(recMailAddyStr);
+
             long countLong = Long.parseLong(count);
             BigInteger itemCOUNT_BI = BigInteger.valueOf(countLong);
             String firstVal = "0000000112221111";
@@ -156,7 +157,7 @@ public class SendMailController implements BaseController {
 
             AccountBalance senderAcctBal_AB = legderTools.getBalanceAndNonce(chainId, senderAddyStr, chainId, assetId);
             System.out.println("nms senderBal before signing:  " + senderAcctBal_AB.getAvailable());
-//            //Transaction the_TX = createSendMailTransaction(theREQUEST,  mainObject_JTUP);
+
             String[] myArgs = {"senderAddyStr", "recMailAddyStr", "firstVal"};
             io.nuls.base.api.provider.Result myResult= myBuildTransferReq(myArgs);
             io.nuls.controller.core.Result newResult = new Result();
@@ -173,10 +174,10 @@ public class SendMailController implements BaseController {
      * @return
      */
     private io.nuls.base.api.provider.Result myBuildTransferReq(String[] args) {
-        String formAddress = args[1];
-        String toAddress = args[2];
+        String formAddress = args[0];
+        String toAddress = args[1];
         String password = "nuls123456";
-        BigInteger amount = new BigInteger(args[3]);  //nms changed from orig
+        BigInteger amount = new BigInteger(args[2]);  //nms changed from orig
         TransferReq.TransferReqBuilder builder =
                 new TransferReq.TransferReqBuilder(1, 1)
                         .addForm(formAddress, password, amount)
@@ -316,12 +317,4 @@ public class SendMailController implements BaseController {
         return coinData.serialize();
     }
 
-//    @Override
-//    public CommandResult execute(String[] args) {
-//        Result<String> result = transferService.transfer(buildTransferReq(args));
-//        if (result.isFailed()) {
-//            return CommandResult.getFailed(result);
-//        }
-//        return CommandResult.getSuccess(result.getData());
-//    }
 }

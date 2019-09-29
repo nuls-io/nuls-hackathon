@@ -3,15 +3,21 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>io.nuls.v2</groupId>
-    <version>1.0.0-SNAPSHOT</version>
-    <artifactId>nuls-blockparty-parent</artifactId>
-    <packaging>pom</packaging>
+
+        <groupId>io.nuls.v2.module</groupId>
+        <artifactId>nuls-blockparty</artifactId>
+        <description>A simple app using blockchain (via Nuls) to record
+            transactions among neighbors so they can trade goods and services.
+        </description>
+       <version></version>
+
+    <url>https://schorrmedia.com</url>
+        <inceptionYear>2019</inceptionYear>
 
     <developers>
         <developer>
-            <id>nmschorr</id>
             <name>Nancy M. Schorr</name>
+            <id>nmschorr</id>
             <url>https://schorrmedia.com</url>
             <roles>
                 <role>developer</role>
@@ -26,122 +32,127 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
-
-        <java.version>11</java.version>
         <core.version>1.0.0-SNAPSHOT</core.version>
         <base.version>1.0.0-SNAPSHOT</base.version>
         <release.version>1.0.0-RELEASE</release.version>
         <snapshot.version>1.0.0-SNAPSHOT</snapshot.version>
-        <name>Nuls-Blockparty Parent</name>
     </properties>
 
-    <dependencies>
 
-        <dependency>
-            <groupId>io.nuls.v2</groupId>
-            <artifactId>nuls-base</artifactId>
-            <version>1.0.0.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>io.nuls.v2</groupId>
-            <artifactId>nuls-core</artifactId>
-            <version>1.0.0.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>io.nuls.v2</groupId>
-            <artifactId>common</artifactId>
-            <version>1.0.0.RELEASE</version>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>io.nuls.v2</groupId>
-            <artifactId>nuls-base-api-provider</artifactId>
-            <version>1.0.0.RELEASE</version>
-        </dependency>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.nuls.v2</groupId>
+                <artifactId>nuls-base</artifactId>
+                <version>1.0.0.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>io.nuls.v2</groupId>
+                <artifactId>nuls-core</artifactId>
+                <version>1.0.0.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>io.nuls.v2</groupId>
+                <artifactId>nuls-core-rpc</artifactId>
+                <version>1.0.0.RELEASE</version>
+            </dependency>
+            <dependency>
+                <groupId>io.nuls.v2</groupId>
+                <artifactId>common</artifactId>
+                <version>1.0.0.RELEASE</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>io.nuls.v2</groupId>
+                <artifactId>nuls-base-api-provider</artifactId>
+                <version>1.0.0.RELEASE</version>
+            </dependency>
 
-        <dependency>
-            <groupId>org.glassfish.jersey.containers</groupId>
-            <artifactId>jersey-container-grizzly2-http</artifactId>
-            <version>${glassfish.jersey.version}</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>grizzly-http-server</artifactId>
-                    <groupId>org.glassfish.grizzly</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.jersey.inject</groupId>
-            <artifactId>jersey-hk2</artifactId>
-            <version>${glassfish.jersey.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.jersey.media</groupId>
-            <artifactId>jersey-media-multipart</artifactId>
-            <version>${glassfish.jersey.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.grizzly</groupId>
-            <artifactId>grizzly-http-server-multipart</artifactId>
-            <version>2.4.4</version>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.grizzly</groupId>
-            <artifactId>grizzly-http-servlet</artifactId>
-            <version>2.4.4</version>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.jersey.containers</groupId>
-            <artifactId>jersey-container-servlet-core</artifactId>
-            <version>${glassfish.jersey.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.glassfish.grizzly</groupId>
-            <artifactId>grizzly-http-server</artifactId>
-            <version>2.4.4</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
-        <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.3.0-b170201.1204</version>
-        </dependency>
+            <dependency>
+                <groupId>org.glassfish.jersey.containers</groupId>
+                <artifactId>jersey-container-grizzly2-http</artifactId>
+                <version>${glassfish.jersey.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>grizzly-http-server</artifactId>
+                        <groupId>org.glassfish.grizzly</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish.jersey.inject</groupId>
+                <artifactId>jersey-hk2</artifactId>
+                <version>${glassfish.jersey.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish.jersey.media</groupId>
+                <artifactId>jersey-media-multipart</artifactId>
+                <version>${glassfish.jersey.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish.grizzly</groupId>
+                <artifactId>grizzly-http-server-multipart</artifactId>
+                <version>2.4.4</version>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish.grizzly</groupId>
+                <artifactId>grizzly-http-servlet</artifactId>
+                <version>2.4.4</version>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish.jersey.containers</groupId>
+                <artifactId>jersey-container-servlet-core</artifactId>
+                <version>${glassfish.jersey.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.glassfish.grizzly</groupId>
+                <artifactId>grizzly-http-server</artifactId>
+                <version>2.4.4</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+            <dependency>
+                <groupId>javax.xml.bind</groupId>
+                <artifactId>jaxb-api</artifactId>
+                <version>2.3.0-b170201.1204</version>
+            </dependency>
 
-        <!-- https://mvnrepository.com/artifact/javax.activation/activation -->
-        <dependency>
-            <groupId>javax.activation</groupId>
-            <artifactId>activation</artifactId>
-            <version>1.1.1</version>
-        </dependency>
+            <!-- https://mvnrepository.com/artifact/javax.activation/activation -->
+            <dependency>
+                <groupId>javax.activation</groupId>
+                <artifactId>activation</artifactId>
+                <version>1.1.1</version>
+            </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime -->
-        <dependency>
-            <groupId>org.glassfish.jaxb</groupId>
-            <artifactId>jaxb-runtime</artifactId>
-            <version>2.3.0-b170127.1453</version>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
-        </dependency>
+            <!-- https://mvnrepository.com/artifact/org.glassfish.jaxb/jaxb-runtime -->
+            <dependency>
+                <groupId>org.glassfish.jaxb</groupId>
+                <artifactId>jaxb-runtime</artifactId>
+                <version>2.3.0-b170127.1453</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>4.0.1</version>
+            </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.apache.commons/org.apache.commons.lang -->
-        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.9</version>
-        </dependency>
-        <dependency>
-            <groupId>org.javatuples</groupId>
-            <artifactId>javatuples</artifactId>
-            <version>1.2</version>
-        </dependency>
-    </dependencies>
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/org.apache.commons.lang -->
+            <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.9</version>
+            </dependency>
+            <dependency>
+                <groupId>org.javatuples</groupId>
+                <artifactId>javatuples</artifactId>
+                <version>1.2</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <!-- ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,-->
     <build>
         <finalName>nuls-blockparty</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -167,7 +178,9 @@
                             <goal>copy-dependencies</goal>
                         </goals>
                         <configuration>
+                            <stripVersion>
                             <outputDirectory>${project.build.directory}/libs</outputDirectory>
+                            </stripVersion>
                         </configuration>
                     </execution>
                 </executions>

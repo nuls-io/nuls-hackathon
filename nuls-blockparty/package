@@ -95,7 +95,7 @@ cp "${BUILD_PATH}/font.woff2" "${OUT_PATH}/font.woff2"
 
 cd $ROOT_PATH
 mvn package -Dmaven.test.skip=true
-mv "target/${APP_NAME}.jar" ${OUT_PATH}/${APP_NAME}-${version}.jar
+mv "target/${APP_NAME}-1.0.0.jar" ${OUT_PATH}/${APP_NAME}-${version}.jar
 cp -r "target/libs" "${OUT_PATH}/lib"
 cp ./test.html "${OUT_PATH}/nuls-blockparty.html"
 

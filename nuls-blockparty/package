@@ -90,10 +90,12 @@ cp "${moduleBuildPath}/module.temp.ncf" "${OUT_PATH}/Module.ncf"
 echo "copy ${moduleBuildPath}/module.temp.ncf to ${OUT_PATH}/Module.ncf"
 echo "copy ${moduleBuildPath}/smlogo.gif to ${OUT_PATH}/smlogo.gif"
 echo "copy ${moduleBuildPath}/font.woff2 to ${OUT_PATH}/font.woff2"
+cp "${BUILD_PATH}/smlogo.gif" "${OUT_PATH}/smlogo.gif"
+cp "${BUILD_PATH}/font.woff2" "${OUT_PATH}/font.woff2"
 
 cd $ROOT_PATH
 mvn package -Dmaven.test.skip=true
-mv "target/${APP_NAME}.jar" ${OUT_PATH}/${APP_NAME}-${version}.jar
+mv "target/${APP_NAME}-1.0.0.jar" ${OUT_PATH}/${APP_NAME}-${version}.jar
 cp -r "target/libs" "${OUT_PATH}/lib"
 cp ./test.html "${OUT_PATH}/nuls-blockparty.html"
 

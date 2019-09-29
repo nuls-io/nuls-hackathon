@@ -1,0 +1,14 @@
+#
+nuls-blockparty/build/tmp
+outer
+build/tmp
+target
+*.iml
+NULS_WALLET
+nuls-blockparty/outer/
+nuls-blockparty/target/
+logs
+.NULS2.0/
+lib/maven
+default-config.ncf
+

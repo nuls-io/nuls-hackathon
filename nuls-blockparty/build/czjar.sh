@@ -22,7 +22,7 @@ echo "parentDIR Directory is ${parentDIR}"
 
 
 MAINJAR="${hmdir}/outer/nuls-blockparty-1.0.0.jar" 
-NEWFILE="${parentDIR}/NULS-WALLET/Modules/Nuls/nuls-blockparty/1.0.0/nuls-blockparty-1.0.0.jar"
+NEWFILE="${parentDIR}/NULS_WALLET/Modules/Nuls/nuls-blockparty/1.0.0/nuls-blockparty-1.0.0.jar"
 
 echo "NEWFILE is $NEWFILE"
 

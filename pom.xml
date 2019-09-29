@@ -43,45 +43,22 @@
             <artifactId>nuls-base</artifactId>
             <version>1.0.0.RELEASE</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/io.nuls.v2/nuls-core -->
-
-        <!-- https://mvnrepository.com/artifact/io.nuls.v2/nuls-core -->
         <dependency>
             <groupId>io.nuls.v2</groupId>
             <artifactId>nuls-core</artifactId>
             <version>1.0.0.RELEASE</version>
         </dependency>
-
-        <dependency>
-            <groupId>io.nuls.v2</groupId>
-            <artifactId>nuls-core-rpc</artifactId>
-            <version>1.0.0-RELEASE</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/io.nuls.v2/common -->
         <dependency>
             <groupId>io.nuls.v2</groupId>
             <artifactId>common</artifactId>
             <version>1.0.0.RELEASE</version>
             <type>pom</type>
         </dependency>
-
-        <dependency>
-            <groupId>io.nuls.v2</groupId>
-            <artifactId>nuls-core-rpc</artifactId>
-            <version>1.0.0.RELEASE</version>
-        </dependency>
-
         <dependency>
             <groupId>io.nuls.v2</groupId>
             <artifactId>nuls-base-api-provider</artifactId>
             <version>1.0.0.RELEASE</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/io.nuls.v2/nuls-base-api-provider -->
-
-
 
         <dependency>
             <groupId>org.glassfish.jersey.containers</groupId>

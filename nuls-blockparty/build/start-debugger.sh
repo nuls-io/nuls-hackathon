@@ -163,7 +163,11 @@ checkJavaVersion
 checkLogDir
 checkIsRunning
 
+#nms added:
+DBG=' -Ddebug=1 -agentlib:jdwp=transport=dt_socket,server=y,address=127.0.0.1:8000,suspend=n'
+
 CLASSPATH=" -classpath ./lib/*"
+
 
 CLASSPATH="${CLASSPATH}:${JAR_FILE}"
 JAVA_OPTS=" -server -XX:+UseG1GC -XX:MaxGCPauseMillis=50 -Xms${JOPT_XMS}m -Xmx${JOPT_XMX}m -XX:MetaspaceSize=${JOPT_METASPACESIZE}m -XX:MaxMetaspaceSize=${JOPT_MAXMETASPACESIZE}m -XX:+ParallelRefProcEnabled -XX:+TieredCompilation -XX:+ExplicitGCInvokesConcurrent $JAVA_OPTS"

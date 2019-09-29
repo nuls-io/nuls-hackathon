@@ -1,8 +1,8 @@
 #Welcome to Blockparty!
 
-The idea here is to show a simple app using blockchain (via Nuls) to record transactions among neighbors so they can trade goods and services.
+This is a simple app using blockchain (via Nuls) to record transactions among neighbors so they can trade goods and services.
 
-In this example, there are nine people registered to trades food item like apples, oranges and eggs. Each item costs one nuls or one "token". 
+In this example, there are nine people registered to trades food item like apples, oranges and eggs. Each item costs about 100000000 nuls or one "token". 
 
 After compiling and running the project (almost exactly like the Chainbox Example), you need to open the front end page by opening this file with a Chrome or Firefox browser:
 

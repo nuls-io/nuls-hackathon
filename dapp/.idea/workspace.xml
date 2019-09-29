@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="26081b96-8b00-4e3f-ba59-70601d02ad08" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/Config.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/Constant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/controller/DepositCopyrightController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/controller/RegisteredEntityController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/controller/core/BaseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/controller/core/NulsResourceConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/controller/core/Result.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/controller/core/WebServerManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/controller/vo/Company.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/controller/vo/CopyrightContentData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/controller/vo/FileInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/controller/vo/Person.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/controller/vo/RegisteredEntityData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/controller/vo/RightDescription.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/rpc/AccountTools.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/rpc/CallRpc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/rpc/LegderTools.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/rpc/TransactionTools.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/rpc/vo/Account.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/rpc/vo/AccountBalance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/rpc/vo/TxRegisterDetail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/service/DepositCopyrightService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/service/RegisteredEntityService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/service/dto/CopyrightContent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/service/dto/RegisteredEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/txhandler/CopyrightContentProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/io/nuls/txhandler/RegisteredEntityProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/接口测试样例.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/init.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module.ncf" beforeDir="false" afterPath="$PROJECT_DIR$/module.ncf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/nuls/MyModule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/nuls/MyModule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/nuls/NulsModuleBootstrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/nuls/NulsModuleBootstrap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/nuls/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/nuls/Utils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/io/nuls/txhandler/TransactionDispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/io/nuls/txhandler/TransactionDispatcher.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>getProcessor</find>
+      <find>saveRegisteredEntity</find>
+      <find>to</find>
+      <find>hashCode</find>
+      <find>mail</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$USER_HOME$/IdeaProjects/sample-project-gradle" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/io/nuls/txhandler/TransactionDispatcher.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/nuls/controller/core/BaseController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/nuls/controller/vo/Company.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/nuls/controller/vo/Person.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/nuls/Constant.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/nuls/controller/vo/FileInfo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/nuls/controller/vo/RightDescription.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/nuls/controller/vo/CopyrightContentData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/nuls/controller/vo/RegisteredEntityData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/nuls/service/dto/RegisteredEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/nuls/txhandler/RegisteredEntityProcessor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/nuls/service/DepositCopyrightService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/nuls/service/dto/CopyrightContent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/nuls/controller/DepositCopyrightController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/nuls/Config.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/nuls/controller/RegisteredEntityController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/nuls/controller/core/WebServerManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/nuls/service/RegisteredEntityService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/io/nuls/txhandler/CopyrightContentProcessor.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$USER_HOME$/apache-maven" />
+        <option name="userSettingsFile" value="$USER_HOME$/apache-maven/conf/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="821" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="copyright" type="b2602c69:ProjectViewProjectNode" />
+              <item name="copyright" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="copyright" type="b2602c69:ProjectViewProjectNode" />
+              <item name="copyright" type="462c0819:PsiDirectoryNode" />
+              <item name="outer" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="copyright" type="b2602c69:ProjectViewProjectNode" />
+              <item name="copyright" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="copyright" type="b2602c69:ProjectViewProjectNode" />
+              <item name="copyright" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="copyright" type="b2602c69:ProjectViewProjectNode" />
+              <item name="copyright" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="copyright" type="b2602c69:ProjectViewProjectNode" />
+              <item name="copyright" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="nuls" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="copyright" type="b2602c69:ProjectViewProjectNode" />
+              <item name="copyright" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="nuls" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="copyright" type="b2602c69:ProjectViewProjectNode" />
+              <item name="copyright" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="nuls" type="462c0819:PsiDirectoryNode" />
+              <item name="txhandler" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="go.gopath.indexing.explicitly.defined" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/io/nuls/controller" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main/java/io/nuls/txhandler" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="26081b96-8b00-4e3f-ba59-70601d02ad08" name="Default" comment="" />
+      <created>1565756225885</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1565756225885</updated>
+      <workItem from="1565756227385" duration="487000" />
+      <workItem from="1565756982609" duration="671000" />
+      <workItem from="1565757730965" duration="553000" />
+      <workItem from="1565758382744" duration="112000" />
+      <workItem from="1565834900836" duration="1709000" />
+      <workItem from="1565839869059" duration="4241000" />
+      <workItem from="1565856380417" duration="930000" />
+      <workItem from="1565857655340" duration="233000" />
+      <workItem from="1565919847007" duration="21689000" />
+      <workItem from="1566745306538" duration="178000" />
+      <workItem from="1566783877739" duration="1166000" />
+      <workItem from="1567928502082" duration="586000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="32555000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1440" height="821" extended-state="0" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Maven Projects" order="11" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="right" id="Flutter Outline" order="5" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Designer" order="2" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="5" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info id="Image Layers" order="3" />
+      <window_info anchor="bottom" id="Java Enterprise" order="8" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.41022098" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21387696" />
+      <window_info anchor="right" id="Bean Validation" order="10" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="right" id="Flutter Inspector" order="4" weight="0.3297568" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32872927" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/txhandler/CopyrightContentProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="729">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/controller/RegisteredEntityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1134">
+          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/txhandler/TransactionProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/txhandler/TransactionDispatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/rpc/vo/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/txhander/TransactionProcessor.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/txhander/TransactionDispatcher.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/rpctools/vo/TxRegisterDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/rpctools/vo/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/rpc/vo/TxRegisterDetail.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/A.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/rpctools/vo/AccountBalance.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/controller/core/NulsResourceConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-295">
+          <caret line="43" column="13" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-206">
+          <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/nuls/v2/nuls-core/1.0.0-beta1/nuls-core-1.0.0-beta1.jar!/io/nuls/core/log/Log.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/rpc/LegderTools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-84">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/rpc/CallRpc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/MyModule.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/NulsModuleBootstrap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/txhandler/TransactionProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/nuls/v2/nuls-base/1.0.0-beta1/nuls-base-1.0.0-beta1.jar!/io/nuls/base/data/Transaction.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="999">
+          <caret line="54" column="27" selection-start-line="54" selection-start-column="25" selection-end-line="54" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/txhandler/TransactionDispatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="27" column="40" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/rpc/TransactionTools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="34" column="19" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/Constant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="22" column="91" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/controller/vo/Company.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/controller/vo/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1755">
+          <caret line="65" column="18" selection-start-line="65" selection-start-column="18" selection-end-line="65" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/controller/core/BaseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="36" column="26" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/controller/core/Result.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="20" column="11" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/controller/vo/FileInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/nuls/v2/nuls-base/1.0.0-beta1/nuls-base-1.0.0-beta1.jar!/io/nuls/base/data/BaseNulsData.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/controller/vo/CopyrightContentData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/controller/vo/RegisteredEntityData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1242">
+          <caret line="46" column="38" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/nuls/v2/nuls-base/1.0.0-beta1/nuls-base-1.0.0-beta1.jar!/io/nuls/base/data/CoinFrom.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="78" column="18" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/nuls/v2/nuls-core/1.0.0-beta1/nuls-core-1.0.0-beta1.jar!/io/nuls/core/constant/CommonCodeConstanst.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-11.0.4.jdk/Contents/Home/lib/src.zip!/java.base/java/util/Optional.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="168" column="19" selection-start-line="168" selection-start-column="19" selection-end-line="168" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/rpc/AccountTools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-759">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/io/nuls/v2/nuls-base/1.0.0-beta1/nuls-base-1.0.0-beta1.jar!/io/nuls/base/basic/AddressTool.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="691">
+          <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/接口测试样例.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="691">
+            <caret line="222" column="1" selection-start-line="195" selection-end-line="222" selection-end-column="1" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/controller/vo/RightDescription.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/module.ncf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/outer/Module.ncf">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/controller/core/WebServerManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="62" column="71" selection-start-line="62" selection-start-column="71" selection-end-line="62" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/service/DepositCopyrightService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="62" column="27" selection-start-line="62" selection-start-column="11" selection-end-line="62" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/controller/RegisteredEntityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-661">
+          <caret line="78" column="29" selection-start-line="78" selection-start-column="29" selection-end-line="78" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/service/RegisteredEntityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="73" column="30" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/txhandler/RegisteredEntityProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="55" column="18" lean-forward="true" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/service/dto/RegisteredEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="114" column="35" selection-start-line="114" selection-start-column="27" selection-end-line="114" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/controller/DepositCopyrightController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="747">
+          <caret line="151" column="18" selection-start-line="151" selection-start-column="18" selection-end-line="151" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/txhandler/CopyrightContentProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="63" column="72" selection-start-line="63" selection-start-column="69" selection-end-line="63" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/io/nuls/service/dto/CopyrightContent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1975">
+          <caret line="274" column="26" selection-start-line="274" selection-start-column="15" selection-end-line="274" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

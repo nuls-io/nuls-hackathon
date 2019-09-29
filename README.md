@@ -1,13 +1,99 @@
-# nuls-hackathon
-With the release of our newest chain-building solution ChainBox, we are inviting developers to win up to $500,000 in NULS prizes by building modules for the world's most adaptable blockchain. NULS is so easy that modules can be created by developers with no direct blockchain experience! For this reason, developers can choose between two objectives to build their modules based on the type of experience they possess. Modules can be built in the coding language of choice.
+# NULS黑客马拉松 - 短视保
+## 1. 摘要
+本文介绍野狼队参加本次NULS黑客马拉松的产品的设计思路，代码和产品连接等基本内容。
 
-There are two developer objectives to choose from:
+## 2. 团队介绍
+野狼队是为了完成区块链项目开发组建的临时团队，团队成员根据项目要求从HiBlock技术社群招募组建而成，成员不固定。
+为参加2019年NULS项目组建的野狼队是一支优秀团结的团队，其成员和分工构成如下：
 
-1. Build a module that can realize specific application scenarios, and use ChainBox to build a new chain in minutes, load the module and test.
 
-2. Design and implement a blockchain ecosystem extension module, and use the ChainBox to build a new blockchain in minutes, load the module and test.
+| 头像 | 姓名   | 分工          | 介绍                                                         |
+| ---- | ------ | ------------- | ------------------------------------------------------------ |
+| ![](https://github.com/1834924958/ShortVideo/blob/develop/img/1.%E7%8E%8B%E7%99%BB%E8%BE%89.jpg) | 王登辉 | 产品&项目经理 | 下笔有神科技区块链 CTO，HiBlock技术社群上海合伙人，电子科技大学硕士毕业， 张江黑客马拉松区块链大赛二等奖野狼队队长，10年华为/中兴 产品.研发经验，深耕区块链技术落地应用。 |
+| ![](https://github.com/1834924958/ShortVideo/blob/develop/img/2.%E6%A2%81%E9%9B%81%E9%B8%A3.png) | 梁雁明 | 区块链工程师  | 拜聚科技，拜聚钱包核心研发工程师，长期从事区块链底层平台的研究与应用开发工作，曾参与设计开发离子链钱包，浏览器等项目，积累了丰富的区块链研究与开发应用经验。|
+| ![](https://github.com/1834924958/ShortVideo/blob/develop/img/3.%E7%BF%9F%E9%9B%AA%E9%9B%AA.png) | 翟雪雪 | 前端工程师 | 上海营锐科技前端架构师，沉浸与金融领域、电商、区块链数十载，多种前端MVC（MVVM）框架开发经验，目前主力框架是VUE2 ，主导或参与过大小项目上百个，注重效率，偏爱敏捷开发，前端“娱乐圈”绝对实力派。 |
+| ![](https://github.com/1834924958/ShortVideo/blob/develop/img/4.%E4%B8%81%E6%81%92.png) | 丁恒 | 后端工程师 | 下笔有神科技区块链后端开发，张江黑客马拉松区块链大赛二等奖野狼队成员，多种交易所开发经验。 |
 
-Activities can include, but are not limited to, oracle data modules, mortgage lending modules, DEX transaction modules, account permissions modules, anonymous privacy modules, traceability certificates, and additional consensus mechanisms.
+## 3. 商业价值及产品需求
 
-Module languages include, but are not limited to, C++, Golang, JAVA, JS, Python, etc.
+### 3.1         商业价值
+
+市场分析章节给我们说明了一个问题，网络视频及短视频业务市场空间巨大，侵权现象严重。
+
+短视保项目着眼于用技术手段解决市场问题，这个技术手段包括区块链技术和大数据技术。
+
+区块链，是一种去中心化的分布式账本数据库，使用密码学相关联所产生的数据块，每一个数据块中包含网络交易有效确认的信息。其技术原理大致是：区块链网络由多个节点组成，节点会对一个时间段内所产生的数据打包成一个（有时间戳标记），网络上的其他节点对接收到的块进行验证，通过后同步到本地服务器。节点新产生的数据与已成块的信息打包成第二个块，其他节点接收、验证通过后同步，之后的网络数据均按此方式打包成块，块与块首尾相连形成链。区块链技术具备去中心化、可溯源、难篡改等特性，尤其是其中可溯源这一特性，可以帮助网络视频的版权方利用该技术追溯盗版源头，实现对盗版源头的精准高效打击。
+
+大数据技术是基于针对全网视频的监测和比对，通过机器学习模型的广泛运用和迭代更新， AI 对侵权盗版视频内容的分辨能力和正确率有望进一步提升， 平台的视频内容审核的自动化程度将进一步加强，从而在减轻人工审核压力的基础上尽可能将侵权盗版视频内容扼杀在摇篮中，实现高效高质的网络视频侵权盗版打击。
+
+### 3.2         产品需求
+
+落实到产品需求层面，短视保项目需要实现以下3个产品功能：
+
+**（1）   版权存证保护，侵权监测，维权三位一体的闭环保护**
+
+短视保要用技术的手段低成本高效率的做到版权保护工作，就要能够实现版权保护的闭环。通过区块链技术及时存证版权，进行确权，然后采用大数据平台进行侵权监测，然后针对高价值的侵权线索发起维权流程，打通确权-监测-维权的闭环流程，保护版权创作人的利益。
+
+**（2）   版权价值评估**
+
+针对目前短视频行业，有些网红等内容创作者，希望通过短视频的广泛传播实现商业变现的需求高于维权的需求，短视保着眼于通过监测全网传播热度评估该作品价值，便于短视频作者的及时变现评估。
+
+**（3）   版权交易**
+
+基于版权的清晰确权和数字化资产的可溯源性，短视保可发展为数字版权的交易平台。基于区块链公链的全球化属性，短视保交易平台可方便转换为全球化的交易平台，解决版权跨国交易的问题。
+
+## 4. 产品设计
+
+## 4.1 系统架构
+
+![](https://github.com/1834924958/ShortVideo/blob/develop/img/5.%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84.png)
+
+短视保平台主要由3个系统模块组成，包括短视保H5前端，管理后台和COPYRIGH系统。
+
+## 4.2 部署架构
+
+![](https://github.com/1834924958/ShortVideo/blob/develop/img/6.%E9%83%A8%E7%BD%B2%E6%9E%B6%E6%9E%84.png)
+
+
+
+
+
+短视保平台由内部系统和外部系统组成。
+
+内部系统由管理后台，短视保前台和区块链浏览器组成。其中，管理后台用于发布短视频内容。短视保前台是H5页面，包含呈现，点赞，证书查看等功能，便于用户通过智能终端在网络传播。区块链浏览器用于查看短视保跟区块链的交互记录。
+
+外部系统包含NULS链的系统，用于提供区块链的能力，包括存证数据的不可篡改，分布式记账功能等。
+
+外部系统还包含版权保护与监测大数据平台，通过这个平台可以监测全网已存证视频的被复制转发的情况，包括未授权的盗版和已授权的分发，可用于后续盗版的维权证据和该视频价值的热度评估和版权估价。
+
+## 5. 产品设计及接口
+
+参考《短视频版权保护和交易平台-短视保接口说明书.pdf》和《短视频版权保护和交易平台-短视保系统设计文档.pdf》文档。
+
+## 6. 仓库目录结构
+
+* api-前端AP接口
+
+* dapp-智能合约
+
+* web-前端
+
+* doc-文档接口
+
+
+## 7. DEMO链接
+
+**（1）前端**
+地址：http://52.82.14.217:8085
+
+**（2）区块链浏览器**
+地址： http://52.82.14.217:1999/
+
+**（3）管理后台**
+地址： http://52.82.14.217:8086
+用户名/密码：13671927739 / 123456
+
+**（4）GITHUB**
+地址：https://github.com/1834924958/nuls-hackathon/tree/wangdenghui
+
 

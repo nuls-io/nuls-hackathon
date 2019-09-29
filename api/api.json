@@ -1,0 +1,566 @@
+{
+	"info": {
+		"_postman_id": "db8dad70-3e46-4055-bd75-b17ee485ba96",
+		"name": "短视宝",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Blocks(区块交互,定时任务,前端无需调用)",
+			"item": [
+				{
+					"name": "注册用户的操作",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTkxODY4ODMsImlzcyI6Im1vcnZvb2FwaSIsIlVzZXJJZCI6IjUiLCJEb21haW5JZCI6Ijg4ZjU2Y2NhZjRiNjZhY2NmM2FjZDJmMjEzY2U1YzhkYWZkNGY1NGUiLCJPcmdVbml0SWQiOiI4OGY1NmNjYWY0YjY2YWNjZjNhY2QyZjIxM2NlNWM4ZGFmZDRmNTRlIiwiYXV0aG9yaXRpZXMiOiJST0xFX0FETUlOLEFVVEhfV1JJVEUsQUNUVUFUT1IifQ.AlRsgo4Jo1FImVdCNHKMTP4Zo4h6Kk8Gn_OLbSFCMxw",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/v1/Blocks/Register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"Blocks",
+								"Register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "版权和链交互",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTkxODY4ODMsImlzcyI6Im1vcnZvb2FwaSIsIlVzZXJJZCI6IjUiLCJEb21haW5JZCI6Ijg4ZjU2Y2NhZjRiNjZhY2NmM2FjZDJmMjEzY2U1YzhkYWZkNGY1NGUiLCJPcmdVbml0SWQiOiI4OGY1NmNjYWY0YjY2YWNjZjNhY2QyZjIxM2NlNWM4ZGFmZDRmNTRlIiwiYXV0aG9yaXRpZXMiOiJST0xFX0FETUlOLEFVVEhfV1JJVEUsQUNUVUFUT1IifQ.AlRsgo4Jo1FImVdCNHKMTP4Zo4h6Kk8Gn_OLbSFCMxw",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{url}}/v1/Blocks/Works",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"Blocks",
+								"Works"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "入口文件(前端不调用)",
+			"item": [
+				{
+					"name": "入口",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "bb6b9f1d-8d51-4794-835e-3ca8a738a2cb",
+								"exec": [
+									"//不限制请求方式"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTg3NjcyMTAsImlzcyI6Im1vcnZvb2FwaSIsIlVzZXJJZCI6IjEiLCJEb21haW5JZCI6ImY1YzUzM2NlMGRkYTgyZjUwNzA0NTEyMGU0ZDllYTJiOTQzZDUyMGEiLCJPcmdVbml0SWQiOiJmNWM1MzNjZTBkZGE4MmY1MDcwNDUxMjBlNGQ5ZWEyYjk0M2Q1MjBhIiwiYXV0aG9yaXRpZXMiOiJST0xFX0FETUlOLEFVVEhfV1JJVEUsQUNUVUFUT1IifQ.5tLV-rZEQEV32EuD3AFht1tK79OxzVnzzasfRubdaq0"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/v1/pc/Index",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"pc",
+								"Index"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "入口",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2f876efe-d22c-4ded-b084-2ead5430d0e3",
+								"exec": [
+									"//不限制请求方式"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTg3NjcyMTAsImlzcyI6Im1vcnZvb2FwaSIsIlVzZXJJZCI6IjEiLCJEb21haW5JZCI6ImY1YzUzM2NlMGRkYTgyZjUwNzA0NTEyMGU0ZDllYTJiOTQzZDUyMGEiLCJPcmdVbml0SWQiOiJmNWM1MzNjZTBkZGE4MmY1MDcwNDUxMjBlNGQ5ZWEyYjk0M2Q1MjBhIiwiYXV0aG9yaXRpZXMiOiJST0xFX0FETUlOLEFVVEhfV1JJVEUsQUNUVUFUT1IifQ.5tLV-rZEQEV32EuD3AFht1tK79OxzVnzzasfRubdaq0"
+							}
+						],
+						"url": {
+							"raw": "{{url}}",
+							"host": [
+								"{{url}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "用户",
+			"item": [
+				{
+					"name": "登录",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2fc34b56-7657-4c9f-bbcf-22da4ad34ff1",
+								"exec": [
+									"\"mobile\": \"13671927739\",   //手机号，字符串",
+									"\"password\": \"123456\",//登录密码"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"mobile\": \"13671927739\",\n\t\"password\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/pc/Login/Login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"pc",
+								"Login",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "退出",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "50c422ec-90f2-4688-b772-a39b0607d95c",
+								"exec": [
+									"",
+									"",
+									"请求信息",
+									"Authorization: //api_token值，在Headers中，必须传递",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NjM0MTY2NjgsImlzcyI6Im1vcnZvb2FwaSIsIlVzZXJJZCI6IjI3IiwiRG9tYWluSWQiOiIxMWYyMDdkNDBlZDlkYTNlODNhNzEyMzQ3YTQ4OTRjNjdiN2JkMDQ5IiwiT3JnVW5pdElkIjoiMTFmMjA3ZDQwZWQ5ZGEzZTgzYTcxMjM0N2E0ODk0YzY3YjdiZDA0OSIsImF1dGhvcml0aWVzIjoiUk9MRV9BRE1JTixBVVRIX1dSSVRFLEFDVFVBVE9SIn0.uONY68I0--plzweFsNmqAMvJxAIxg7RXj5mrSBSDm7E"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/pc/User/SignOut",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"pc",
+								"User",
+								"SignOut"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "注册",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d57d9fe-54a7-4781-9267-e6524b4a8fe3",
+								"exec": [
+									"\"mobile\": \"13671927739\",   //手机号，字符串",
+									"\"password\": \"123456\",//密码",
+									"\"repassword\": \"123456\",//确认密码"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "infos",
+								"value": "备注信息，不做调用，types参数为1：注册，2：忘记密码，3:修改密码，area_code参数必须传递，代表国际区号",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"mobile\": \"17839906225\",\n\t\"password\": \"123456\",\n\t\"repassword\": \"123456\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/pc/Login/Register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"pc",
+								"Login",
+								"Register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "首页信息",
+			"item": [
+				{
+					"name": "首页列表",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "be5aa9a2-f95e-43ab-85b7-a1c699b0bcf3",
+								"exec": [
+									"//请求信息",
+									"\"start\": 0,//条数默认为0",
+									"\"length\": 10//每页多少条，长度，默认为10",
+									"",
+									"//响应信息",
+									"\"image_height\": 228,//视频封面高度，范围在150~300之间，这样的话有感觉，前端可以调用或者不调用",
+									" \"works_author\": \"梵高\"//作者",
+									"\"works_certificatepc\": \"static/resource/copyright/pc/20190710/BLa4XuXX.png\",//版权存证图，前端可以这里调用，或者不调用",
+									"\"works_files\": \"static/upload/images/20190710/hEuwt8D7.jpeg\",//作品文件，本项目为视频",
+									"\"works_id\": 76,//作品ID",
+									"\"works_name\": \"晨曦\",//作品名",
+									"\"works_status\": 1,//作品状态，0:审核中，1:已存证，3:认证失败",
+									"\"works_time\": 1562728886,//作品创建时间",
+									"\"works_videos_image\": \"static/resource/images/videos/test9.jpg\"//作品封面图,随机生成"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"start\": 0,\n    \"length\": 10\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/Index/Works",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"Index",
+								"Works"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "版权存证",
+			"item": [
+				{
+					"name": "版权存证列表",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "51b8fa9b-ba8d-4b4b-9c76-9a5138b2715a",
+								"exec": [
+									"",
+									"",
+									"请求信息",
+									"Authorization: //api_token值，在Headers中",
+									"",
+									"",
+									"//传递参数",
+									"{",
+									"    \"code\": 1,",
+									"    \"msg\": \"获取存证列表信息成功!\",",
+									"    \"data\": {",
+									"        \"data\": [",
+									"            {",
+									"                \"certificate_id\": \"\",//存证ID",
+									"                \"works_files\": \"static/upload/images/20190716/nnigMroW.PNG\",//作品文件信息",
+									"                \"works_id\": 80,//作品ID",
+									"                \"works_name\": \"中国文化所讲的人情是指人与人之间的性情。人情这两个字，现在解释来看，包括了社会学，政治学，心理学，行为学等等学问都在内，也可以理解为人与人之间融洽相处的感情。世故就是透彻了解事物，懂得过去，现在，未来。故是事情，世故就是世界上这些事情，要懂得人，要懂得事，就叫做人情世故\",//作品名称",
+									"                \"works_status\": 3,//作品状态，0:审核中，1:已存证，3:认证失败",
+									"                \"works_time\": 1563352530,//作品创建时间",
+									"                \"works_types\": 43//作品类型，17：视频，23:音频：35：文本，43：图片 0:其他",
+									"            },",
+									"            {",
+									"                \"certificate_id\": \"0d182fe8bd2773e99326f1d13586a79bb1e474af50c9cef47fd486d1de52aec1\",",
+									"                \"works_files\": \"static/upload/images/20190716/z2yzLrsE.png\",",
+									"                \"works_id\": 79,",
+									"                \"works_name\": \"晨曦\",",
+									"                \"works_status\": 1,",
+									"                \"works_time\": 1563278965,",
+									"                \"works_types\": 43",
+									"            }",
+									"        ],",
+									"        \"iTotalDisplayRecords\": 23",
+									"    }",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NjY2NDM1OTQsImlzcyI6Im1vcnZvb2FwaSIsIlVzZXJJZCI6IjI3IiwiRG9tYWluSWQiOiJlMDE0MDE0Mzc4Y2IxMmY3ZjM1MzkwNTUyZGI2ZGMxNzEwMTExNDNlIiwiT3JnVW5pdElkIjoiZTAxNDAxNDM3OGNiMTJmN2YzNTM5MDU1MmRiNmRjMTcxMDExMTQzZSIsImF1dGhvcml0aWVzIjoiUk9MRV9BRE1JTixBVVRIX1dSSVRFLEFDVFVBVE9SIn0.FQDx9YeK6JfQKerApr35N-xEtLk-ILKLP6tEdIgMOUQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t    \"start\": 0,\n        \"length\": 10,\n        \"name\": \"\",\n        \"types\":0,\n        \"start_time\":0,\n        \"end_time\":0\n\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/pc/Copyright/Index",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"pc",
+								"Copyright",
+								"Index"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "版权存证文件上传",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "78403dbb-7fe6-4dae-b58e-2625e00b32da",
+								"exec": [
+									"",
+									"",
+									"请求信息",
+									"Authorization: //api_token值，在Headers中",
+									"",
+									"",
+									"//传递参数",
+									"\"upfile\"://文件信息",
+									"\"types\":17 //必须传递，必须为17"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NjY2NDM1OTQsImlzcyI6Im1vcnZvb2FwaSIsIlVzZXJJZCI6IjI3IiwiRG9tYWluSWQiOiJlMDE0MDE0Mzc4Y2IxMmY3ZjM1MzkwNTUyZGI2ZGMxNzEwMTExNDNlIiwiT3JnVW5pdElkIjoiZTAxNDAxNDM3OGNiMTJmN2YzNTM5MDU1MmRiNmRjMTcxMDExMTQzZSIsImF1dGhvcml0aWVzIjoiUk9MRV9BRE1JTixBVVRIX1dSSVRFLEFDVFVBVE9SIn0.FQDx9YeK6JfQKerApr35N-xEtLk-ILKLP6tEdIgMOUQ"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "upfile",
+									"value": null,
+									"type": "file"
+								},
+								{
+									"key": "types",
+									"value": "17",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "17：视频，23:音频：35：文本，43：图片,0：其他",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/v1/pc/Copyright/Upload",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"pc",
+								"Copyright",
+								"Upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "新建存证",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "199ce65e-d351-4488-aa1b-0fe37ad33bcb",
+								"exec": [
+									"",
+									"",
+									"请求信息",
+									"Authorization: //api_token值，在Headers中",
+									"",
+									"",
+									"//传递参数",
+									"\"works_name\": \"晨曦\",//作品名称",
+									"\"works_author\":\"梵高\",//作者名称",
+									"\"works_type\": \"17\",//作品类型，必须传递为17",
+									"\"works_obligee\": \"叶子\",//权利人",
+									"\"works_files\": \"202\"//上传文件ID",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NjY2NDM1OTQsImlzcyI6Im1vcnZvb2FwaSIsIlVzZXJJZCI6IjI3IiwiRG9tYWluSWQiOiJlMDE0MDE0Mzc4Y2IxMmY3ZjM1MzkwNTUyZGI2ZGMxNzEwMTExNDNlIiwiT3JnVW5pdElkIjoiZTAxNDAxNDM3OGNiMTJmN2YzNTM5MDU1MmRiNmRjMTcxMDExMTQzZSIsImF1dGhvcml0aWVzIjoiUk9MRV9BRE1JTixBVVRIX1dSSVRFLEFDVFVBVE9SIn0.FQDx9YeK6JfQKerApr35N-xEtLk-ILKLP6tEdIgMOUQ"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t    \"works_name\": \"晨曦\",\n        \"works_author\":\"梵高\",\n        \"works_type\": \"17\",\n        \"works_obligee\": \"叶子\",\n        \"works_files\": \"202\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/v1/pc/Copyright/Proof",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"pc",
+								"Copyright",
+								"Proof"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

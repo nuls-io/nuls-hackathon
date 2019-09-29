@@ -19,7 +19,7 @@ When I moved onto the meat and potatoes of the app - I discovered that transferr
 
 The Java JDK ships with it's own built in debugger - often accessed by the command line via the cli tool jdb. However, having little experience using that I did some research and found that Intellij Idea for Java would run with the JDK build in debugger.
 
-I enabled the debugger to run with just my module. Included in this package is a file in the "build" directory called "start-debugger.sh" that enables this. Rename the this file to "start.sh" and copy it over the start.sh in <project-directory>/NULS_WALLET/Modules/Nuls/nuls-blockparty/1.0.0/ .
+I enabled the debugger to run with just my module. Included in this package is a file in the "build" directory called "start-debugger.sh" that enables this. Rename the this file to "start.sh" and copy it over the start.sh in <project-directory>/NULS_WALLET/Modules/Nuls/nuls-blockparty/1.0.0/ . One small bug in start.sh is that it appears to require an argument. So I execute it as "start.sh -a" and that seems to work.
 
 The debugger runs on port 8000. Go into the Run / Edit Configurations and add a configuration for Remote from the run templates provided. Enter 8000 for the port. It should automatically fill in the settings which are:
 
@@ -27,7 +27,7 @@ The debugger runs on port 8000. Go into the Run / Edit Configurations and add a 
 
 These are the same settings that go into the java run instruction for the module you want to debug.
 
-The accounts for the people Kathy, Bella, Olivia etc. need to be created in the usual Chainbox example manor.  I will include brief instructions for that below. I've included a file "address" that has keys for the first two users.  To enable the rest of the users, view the source of the html page for now. The source code behind each user's popup selection has their matching account addresses. Later I might include the other names.
+The accounts for the people Kathy, Bella, Olivia etc. need to be created in the usual Chainbox example manor.  I will include brief instructions for that below. I've included a file "address" that has keys for the first two users.  To enable the rest of the users, view the source of the html page for now. The source code behind each user's popup selection has their matching account addresses. Those names and addresses are also include in a file /build/address-all .
 
 As of Sept 27 2019 the transactions in this app are almost going through. I need to finish one step which is the commit.  There is also general code cleanup to be done.
 
@@ -141,6 +141,7 @@ Please confirm new password:**********
 tNULSeBaMrbMRiFAUeeAt6swb4xVBNyi81YL24
 ```
 The accounts 'tNULSeBaMnrs6JKrCy6TQdzYJZkMZJDng7QAsD' and 'tNULSeBaMrbMRiFAUeeAt6swb4xVBNyi81YL24' are now available.
+
 
 If you wish to enable the rest of the accounts to match the web page, here are the entries:
 

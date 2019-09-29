@@ -3,16 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-        <groupId>io.nuls.v2.module</groupId>
-        <artifactId>nuls-blockparty</artifactId>
-        <description>A simple app using blockchain (via Nuls) to record
-            transactions among neighbors so they can trade goods and services.
-        </description>
-       <version>1.0.0</version>
-
+    <groupId>io.nuls.v2.module</groupId>
+    <artifactId>nuls-blockparty</artifactId>
+    <description>A simple app using blockchain (via Nuls) to record
+        transactions among neighbors so they can trade goods and services.
+    </description>
+    <version>1.0.0</version>
     <url>https://schorrmedia.com</url>
-        <inceptionYear>2019</inceptionYear>
+    <inceptionYear>2019</inceptionYear>
 
     <developers>
         <developer>

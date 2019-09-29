@@ -16,17 +16,17 @@ import io.nuls.rpc.LegderTools;
 import io.nuls.rpc.TransactionTools;
 import io.nuls.rpc.vo.AccountBalance;
 import io.nuls.service.MailAddressService;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+//import javax.ws.rs.POST;
+//import javax.ws.rs.Path;
+//import javax.ws.rs.Produces;
+//import javax.ws.rs.core.MediaType;
 import java.math.BigInteger;
 import java.util.Objects;
 import java.util.Optional;
 
 
 import java.lang.System;
-import org.javatuples.*;
+//import org.javatuples.*;
 import io.nuls.base.api.provider.ServiceManager;
 import io.nuls.base.api.provider.transaction.TransferService;
 

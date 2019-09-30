@@ -83,32 +83,30 @@ public class SendMailController implements BaseController {
             BigInteger costPerItemBI = BigInteger.valueOf(Long.parseLong(costPerItem));
             BigInteger firstTOTALbi = costPerItemBI.multiply(itemCOUNT_BI);  // subtract from sender, add to receiver
 
-            // Ennead is python-like object from org.javatuples
-//            Ennead<String, String, String, Optional<MailAddressData>, Optional<MailAddressData>,
-//                    byte[], byte[], BigInteger, BigInteger> mainObject_JTUP;
-//
-//            mainObject_JTUP = new Ennead<>(password, senderAddyStr, recMailAddyStr, senderAddy_OPT, recAddy_OPT,
-//                    senderAddy_BYTES, receiverAddy_BYTES, itemCOUNT_BI, firstTOTALbi);
-
             AccountBalance beginSenderBalance = legderTools.getBalanceAndNonce(chainId, senderAddyStr, chainId, assetId);
-            System.out.println("nms senderBal before signing:  " + beginSenderBalance.getAvailable());
+            BigInteger sendBeginAvailBI =  beginSenderBalance.getAvailable());
+
+
+            System.out.println("nms senderBal before signing:  " + sendBeginAvailBI);
 
             String[] tranferStrings = {senderAddyStr, recMailAddyStr, password};
 
             io.nuls.base.api.provider.Result apiResult= doTransferRequest(tranferStrings, firstTOTALbi, chainId, assetId);
 
             AccountBalance endSenderBal = legderTools.getBalanceAndNonce(chainId, senderAddyStr, chainId, assetId);
+            BigInteger sendAfterAvailBI =  endSenderBal.getAvailable());
             io.nuls.controller.core.Result newResult = new Result();
             newResult.setMsg(apiResult.getMessage());
 
             br =  "<br/>";
-            begBalStr = "Your beginning balance was: "  "+beginSenderBalance + ";
-            andNowBalStr = " and now it is: " + endSenderBal + br;
+            begBalStr1 = "Your beginning balance was: "  + sendBeginAvailBI";
+            andNowBalStr2 = br + "and now it is: " + sendAfterAvailBI;
+            yourTransferStr3 = br + "Your transfer of " + firstTOTALbi +  " to blockchain address: " + recMailAddyStr;
+            wasRecordedStr4 = br  + "was recorded in the blockchain and ledger. ";
+            pleaseReloadStr5 = br + "Please reload page to do another transfer.";
 
-
-            String s1 = begBalStr + " and now it is: " + endSenderBal + "<br/>";
-            String s2 = "Your transfer of " + costPerItemBI +  " to blockchain address: " + recMailAddyStr +
-                    "<br/>" + " was recorded in the blockchain and ledger. Reload page to do another transfer.";
+            String s1 = begBalStr1 + andNowBalStr2;
+            String s2 = yourTransferStr3 + wasRecordedStr4 + pleaseReloadStr5;
             String successMsg = s1 + s2;
 
             newResult.setSuccess(apiResult.isSuccess());

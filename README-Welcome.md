@@ -18,27 +18,6 @@ The app started with a copy of Nuls Chainbox example. I modified the html front-
 The accounts for the people Kathy, Bella, Olivia etc. need to be created in the usual Chainbox example manor.  I will include brief instructions for that below. I've included a file "address" that has keys for the first two users.  To enable the rest of the users, view the source of the html page for now. The source code behind each user's popup selection has their matching account addresses. Those names and addresses are also include in a file /build/address-all .
 
 
-### My Experience Coding with Nuls
-Wow, amazing. It's hard to believe a loosely organized open-source, international group of people have this giant code-base not only working but available for everyone. The transactions, encryption, data flow etc are all functional. Clearly the expertise of the developers was very advanced to begin with. In this project you will find:
-
-- Abstract Classes, Interfaces
-- Collections – List, Map, Set etc.
-- File IO, Serialization, JSON
-- Spring, Annotations and Optionals
-- Multithreading and Synchronization
-- Generics; Dependency Injection, Lambda's
-- Servers, Servlets, Sockets
-- Web Technologies - HTML, REST, CSS, Javascript, JQuery and Ajax
-
-###Some Things I Changed from Chainbox
-
-Much of the code was difficult to read at first since it was both unfamiliar, and frankly - I had given up on Java and have been using Python more and more over the past few years. Going back to Java was a little bit painful. But I found I enjoyed the 'sturdy' feeling of something that won't tie itself together unless it's developers really "make it so". Also, much of the technology around Java - like profiling and debugging - are very advanced. 
-
-A lot of the Chainbox code had been condensed so that it was fast, lightweight, efficient - but difficult to step through with a debugger for learning purposes. So I undid a lot of the function calls within function calls, etc. I also moved functionality around a little bit so that the main working parts were more together. 
-
-Since my app doesn't send email - in the future I'd like to remove some of that and other extraneous code if posssible.
-
-
 #### Startup Instructions
 
 - Linux or MacOS
@@ -130,7 +109,7 @@ tNULSeBaMrbMRiFAUeeAt6swb4xVBNyi81YL24
 The accounts 'tNULSeBaMnrs6JKrCy6TQdzYJZkMZJDng7QAsD' and 'tNULSeBaMrbMRiFAUeeAt6swb4xVBNyi81YL24' are now available.
 
 
-If you wish to enable the rest of the accounts to match the web page, here are the entries:
+If you wish to enable the rest of the accounts to match the web page, here are the entries. They are also provided in the webextras directory.
 
 <sub><sup>
 tNULSeBaMvEtDfvZuukDf2mVyfGo3DdiN8KLRG;tony;9ce21dad67e0f0af2599b41b515a7f7018059418bab892a7b68f283d489abc4b;
@@ -149,6 +128,29 @@ tNULSeBaMuNfJh79Jbj6HSzMAkaA4AAGwzeSMH;freddie;0369132c3272148f1635e2f3d8a0fd9c0
 </sub></sup>
 
 
+### My Experience Coding with Nuls
+Wow, amazing. It's hard to believe a loosely organized open-source, international group of people have this giant code-base not only working but available for everyone. The transactions, encryption, data flow etc are all functional. Clearly the expertise of the developers was very advanced to begin with. In this project you will find:
+
+- Abstract Classes, Interfaces
+- Collections – List, Map, Set etc.
+- File IO, Serialization, RPC
+- Spring, Annotations and Optionals
+- Multithreading and Synchronization
+- Generics; Dependency Injection, Lambda's
+- Grizzly/Jersey Servers, Servlets, Sockets, 
+- Web Technologies - HTML, REST, CSS, Javascript, JQuery and Ajax
+- And don't forget Maven, Git, and Bash
+
+
+###Some Things I Changed from Chainbox
+
+Much of the code was difficult to read at first since it was both unfamiliar, and frankly - I had given up on Java and have been using Python more and more over the past few years. Going back to Java was a little bit painful. But I found I enjoyed the 'sturdy' feeling of something that won't tie itself together unless it's developers really "make it so". Also, much of the technology around Java - like profiling and debugging - are very advanced. 
+
+A lot of the Chainbox code had been condensed so that it was fast, lightweight, efficient - but difficult to step through with a debugger for learning purposes. So I undid a lot of the function calls within function calls, etc. I also moved functionality around a little bit so that the main working parts were more together. 
+
+Since my app doesn't send email - in the future I'd like to remove some of that and other extraneous code if posssible.
+
+
 ##Debugging Nuls 
 
 When I moved onto the meat and potatoes of the app - I discovered that transferring nuls between accounts was easier said than done. In order to better understand the process, I usually use the debugger built into whatever IDE I'm using. However, in the case of Nuls - a giant, complex code base with numerous configuration files - this wasn't going to be possible. Also, you would want debugging run on the entire system because it would slow to a crawl.
@@ -156,7 +158,7 @@ When I moved onto the meat and potatoes of the app - I discovered that transferr
 
 The Java JDK ships with it's own built in debugger - often accessed by the command line via the cli tool jdb. However, having little experience using that I did some research and found that Intellij Idea for Java would run with the JDK build in debugger.
 
-I enabled the debugger to run with just my module. Included in this package is a file in the "build" directory called "start-debugger.sh" that enables this. Rename the this file to "start.sh" and copy it over the start.sh in <project-directory>/NULS_WALLET/Modules/Nuls/nuls-blockparty/1.0.0/ . Type "start.sh nuls-blockparty" and you're on your way.
+I enabled the debugger to run with just my module. Included in this package is a file in the "webextras" directory called "start.debugger.sh" that enables this. Rename the this file to "start.sh" and copy it over the start.sh in <project-directory>/NULS_WALLET/Modules/Nuls/nuls-blockparty/1.0.0/ . Type "start.sh nuls-blockparty" or just restart with "start-dev" and you're on your way. If you run 'tools' again it will be erased.
 
 The debugger runs on port 8000. Go into the Run / Edit Configurations and add a configuration for Remote from the run templates provided. Enter 8000 for the port. It should automatically fill in the settings which are:
 
@@ -164,8 +166,10 @@ The debugger runs on port 8000. Go into the Run / Edit Configurations and add a 
 
 These are the same settings that go into the java run instruction for the module you want to debug.
 
-##Current Bugs:
-- You need to manually change the name of "mail-test.html" to "nuls-blockparty.html"
+
+##Known Bugs:
+
+- Possibly issues with the Maven pom.xml.
 
 
 

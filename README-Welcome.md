@@ -15,21 +15,8 @@ Driving a neighbor to the airport might win you 6 avocados and an hour of babysi
 
 The app started with a copy of Nuls Chainbox example. I modified the html front-end to accept food trading. I started with basically not much knowledge of how blockchains work. At first, I went through the app and removed all the parts relating to creating and sending emails. I also spent a good amount of time getting the built-in Grizzly web server to function on port 0.0.0.0:9999 . The worst part of that was dealing with CORS rejecting requests based on headers.  I finally figured out how to set them in the outgoing request correctly. 
 
-When I moved onto the meat and potatoes of the app - I discovered that transferring nuls between accounts was easier said than done. In order to better understand the process, I usually use the debugger built into whatever IDE I'm using. However, in the case of Nuls - a giant, complex code base with numerous configuration files - this wasn't going to be possible. Also, you would want debugging run on the entire system because it would slow to a crawl.
-
-The Java JDK ships with it's own built in debugger - often accessed by the command line via the cli tool jdb. However, having little experience using that I did some research and found that Intellij Idea for Java would run with the JDK build in debugger.
-
-I enabled the debugger to run with just my module. Included in this package is a file in the "build" directory called "start-debugger.sh" that enables this. Rename the this file to "start.sh" and copy it over the start.sh in <project-directory>/NULS_WALLET/Modules/Nuls/nuls-blockparty/1.0.0/ . One small bug in start.sh is that it appears to require an argument. So I execute it as "start.sh -a" and that seems to work.
-
-The debugger runs on port 8000. Go into the Run / Edit Configurations and add a configuration for Remote from the run templates provided. Enter 8000 for the port. It should automatically fill in the settings which are:
-
-       -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=localhost:8000
-
-These are the same settings that go into the java run instruction for the module you want to debug.
-
 The accounts for the people Kathy, Bella, Olivia etc. need to be created in the usual Chainbox example manor.  I will include brief instructions for that below. I've included a file "address" that has keys for the first two users.  To enable the rest of the users, view the source of the html page for now. The source code behind each user's popup selection has their matching account addresses. Those names and addresses are also include in a file /build/address-all .
 
-As of Sept 27 2019 the transactions in this app are almost going through. I need to finish one step which is the commit.  There is also general code cleanup to be done.
 
 ### My Experience Coding with Nuls
 Wow, amazing. It's hard to believe a loosely organized open-source, international group of people have this giant code-base not only working but available for everyone. The transactions, encryption, data flow etc are all functional. Clearly the expertise of the developers was very advanced to begin with. In this project you will find:
@@ -160,3 +147,25 @@ tNULSeBaMoodYW7AqyJrgYdWiJ6nfwfVHHHyXm;olivia;4efb6c23991f56626bc77cdb341d64e891
 
 tNULSeBaMuNfJh79Jbj6HSzMAkaA4AAGwzeSMH;freddie;0369132c3272148f1635e2f3d8a0fd9c09598e450c41e4b9a0a3f86c88b38e4fa7;
 </sub></sup>
+
+
+##Debugging Nuls 
+
+When I moved onto the meat and potatoes of the app - I discovered that transferring nuls between accounts was easier said than done. In order to better understand the process, I usually use the debugger built into whatever IDE I'm using. However, in the case of Nuls - a giant, complex code base with numerous configuration files - this wasn't going to be possible. Also, you would want debugging run on the entire system because it would slow to a crawl.
+
+
+The Java JDK ships with it's own built in debugger - often accessed by the command line via the cli tool jdb. However, having little experience using that I did some research and found that Intellij Idea for Java would run with the JDK build in debugger.
+
+I enabled the debugger to run with just my module. Included in this package is a file in the "build" directory called "start-debugger.sh" that enables this. Rename the this file to "start.sh" and copy it over the start.sh in <project-directory>/NULS_WALLET/Modules/Nuls/nuls-blockparty/1.0.0/ . Type "start.sh nuls-blockparty" and you're on your way.
+
+The debugger runs on port 8000. Go into the Run / Edit Configurations and add a configuration for Remote from the run templates provided. Enter 8000 for the port. It should automatically fill in the settings which are:
+
+       -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=localhost:8000
+
+These are the same settings that go into the java run instruction for the module you want to debug.
+
+##Current Bugs:
+- You need to manually change the name of "mail-test.html" to "nuls-blockparty.html"
+
+
+

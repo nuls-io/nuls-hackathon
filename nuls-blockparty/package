@@ -94,5 +94,8 @@ cd $ROOT_PATH
 mvn package -Dmaven.test.skip=true
 mv "target/${APP_NAME}.jar" ${OUT_PATH}/${APP_NAME}-${version}.jar
 cp -r "target/libs" "${OUT_PATH}/lib"
-cp ./test.html "${OUT_PATH}/mail-test.html"
+cp ./test.html "${OUT_PATH}/${APP_NAME}.html"
+cp "${ROOT_PATH}/webextras/font.woff2" ${OUT_PATH}
+cp "${ROOT_PATH}/webextras/smlogo.gif" ${OUT_PATH}
+
 echo "============ PACKAGE FINISH 🍺🍺🍺🎉🎉🎉 ==============="

@@ -1,6 +1,5 @@
 package io.nuls.controller;
 
-
 import io.nuls.Config;
 import io.nuls.base.api.provider.transaction.facade.TransferReq;
 //import io.nuls.base.api.provider.Result;
@@ -18,12 +17,23 @@ import io.nuls.rpc.vo.AccountBalance;
 import io.nuls.service.MailAddressService;
 import java.math.BigInteger;
 import java.util.Objects;
-import java.util.Optional;
 
 import java.lang.System;
 import io.nuls.base.api.provider.ServiceManager;
 import io.nuls.base.api.provider.transaction.TransferService;
 
+import javax.ws.rs.Path;
+import javax.ws.rs.POST;
+//import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import java.io.IOException;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * @author nmschorr based on code from zhoulijun
@@ -73,9 +83,9 @@ public class SendMailController implements BaseController {
             Integer assetId = config.getAssetId();
             byte[] receiverAddy_BYTES = senderAddyStr.getBytes();
             byte[] senderAddy_BYTES = recMailAddyStr.getBytes();
-            Optional<MailAddressData> recAddy_OPT, senderAddy_OPT;
-            senderAddy_OPT = mailAddressService.getMailAddress(senderAddyStr);
-            recAddy_OPT = mailAddressService.getMailAddress(recMailAddyStr);
+//            Optional<MailAddressData> recAddy_OPT, senderAddy_OPT;
+//            senderAddy_OPT = mailAddressService.getMailAddress(senderAddyStr);
+//            recAddy_OPT = mailAddressService.getMailAddress(recMailAddyStr);
 
             long countLong = Long.parseLong(count);
             BigInteger itemCOUNT_BI = BigInteger.valueOf(countLong);
@@ -92,18 +102,19 @@ public class SendMailController implements BaseController {
             String[] tranferStrings = {senderAddyStr, recMailAddyStr, password};
 
             io.nuls.base.api.provider.Result apiResult= doTransferRequest(tranferStrings, firstTOTALbi, chainId, assetId);
-
+            io.nuls.base.
             AccountBalance endSenderBal = legderTools.getBalanceAndNonce(chainId, senderAddyStr, chainId, assetId);
-            BigInteger sendAfterAvailBI =  endSenderBal.getAvailable());
+            BigInteger sendAfterAvailBI =  endSenderBal.getAvailable();
             io.nuls.controller.core.Result newResult = new Result();
+            apiResult.
             newResult.setMsg(apiResult.getMessage());
 
-            br =  "<br/>";
-            begBalStr1 = "Your beginning balance was: "  + sendBeginAvailBI";
-            andNowBalStr2 = br + "and now it is: " + sendAfterAvailBI;
-            yourTransferStr3 = br + "Your transfer of " + firstTOTALbi +  " to blockchain address: " + recMailAddyStr;
-            wasRecordedStr4 = br  + "was recorded in the blockchain and ledger. ";
-            pleaseReloadStr5 = br + "Please reload page to do another transfer.";
+            String br =  "<br/>";
+            String begBalStr1 = "Your beginning balance was: "  + sendBeginAvailBI";
+            String andNowBalStr2 = br + "and now it is: " + sendAfterAvailBI;
+            String yourTransferStr3 = br + "Your transfer of " + firstTOTALbi +  " to blockchain address: " + recMailAddyStr;
+            String wasRecordedStr4 = br  + "was recorded in the blockchain and ledger. ";
+            String pleaseReloadStr5 = br + "Please reload page to do another transfer.";
 
             String s1 = begBalStr1 + andNowBalStr2;
             String s2 = yourTransferStr3 + wasRecordedStr4 + pleaseReloadStr5;

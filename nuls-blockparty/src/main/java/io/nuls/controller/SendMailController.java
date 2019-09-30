@@ -24,16 +24,9 @@ import io.nuls.base.api.provider.transaction.TransferService;
 
 import javax.ws.rs.Path;
 import javax.ws.rs.POST;
-//import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import java.io.IOException;
-import java.math.BigInteger;
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
+
 
 /**
  * @author nmschorr based on code from zhoulijun
@@ -68,7 +61,6 @@ public class SendMailController implements BaseController {
     @Path("sendMail")
     @Produces(MediaType.APPLICATION_JSON)
     @POST
-    //io.nuls.controller.core.Result
     public Result<String> sendMail(SendMailReq theREQUEST) {
         return call(() -> {
             Objects.requireNonNull(theREQUEST.getSenderAddress(), "sender address can't null");  //sender
@@ -81,11 +73,6 @@ public class SendMailController implements BaseController {
             String count = theREQUEST.getTitle();
             Integer chainId = config.getChainId();
             Integer assetId = config.getAssetId();
-            byte[] receiverAddy_BYTES = senderAddyStr.getBytes();
-            byte[] senderAddy_BYTES = recMailAddyStr.getBytes();
-//            Optional<MailAddressData> recAddy_OPT, senderAddy_OPT;
-//            senderAddy_OPT = mailAddressService.getMailAddress(senderAddyStr);
-//            recAddy_OPT = mailAddressService.getMailAddress(recMailAddyStr);
 
             long countLong = Long.parseLong(count);
             BigInteger itemCOUNT_BI = BigInteger.valueOf(countLong);
@@ -94,7 +81,7 @@ public class SendMailController implements BaseController {
             BigInteger firstTOTALbi = costPerItemBI.multiply(itemCOUNT_BI);  // subtract from sender, add to receiver
 
             AccountBalance beginSenderBalance = legderTools.getBalanceAndNonce(chainId, senderAddyStr, chainId, assetId);
-            BigInteger sendBeginAvailBI =  beginSenderBalance.getAvailable());
+            BigInteger sendBeginAvailBI =  beginSenderBalance.getAvailable();
 
 
             System.out.println("nms senderBal before signing:  " + sendBeginAvailBI);
@@ -102,15 +89,15 @@ public class SendMailController implements BaseController {
             String[] tranferStrings = {senderAddyStr, recMailAddyStr, password};
 
             io.nuls.base.api.provider.Result apiResult= doTransferRequest(tranferStrings, firstTOTALbi, chainId, assetId);
-            io.nuls.base.
+
             AccountBalance endSenderBal = legderTools.getBalanceAndNonce(chainId, senderAddyStr, chainId, assetId);
             BigInteger sendAfterAvailBI =  endSenderBal.getAvailable();
             io.nuls.controller.core.Result newResult = new Result();
-            apiResult.
+
             newResult.setMsg(apiResult.getMessage());
 
-            String br =  "<br/>";
-            String begBalStr1 = "Your beginning balance was: "  + sendBeginAvailBI";
+            String br = "<br/>";
+            String begBalStr1 = "Your beginning balance was: "  + sendBeginAvailBI;
             String andNowBalStr2 = br + "and now it is: " + sendAfterAvailBI;
             String yourTransferStr3 = br + "Your transfer of " + firstTOTALbi +  " to blockchain address: " + recMailAddyStr;
             String wasRecordedStr4 = br  + "was recorded in the blockchain and ledger. ";
@@ -124,12 +111,11 @@ public class SendMailController implements BaseController {
             newResult.setMsg(successMsg);
             newResult.setData(apiResult.getData());
             return newResult;
-
-
         });
     }
     /**
-     * //https://github.com/nuls-io/nuls-v2/blob/221c3c3007c78cc04b28f5068aa0c28e27cc3a6e/module/nuls-cmd-client/src/main/java/io/nuls/cmd/client/processor/transaction/TransferProcessor.java
+     * //https://github.com/nuls-io/nuls-v2/blob/221c3c3007c78cc04b28f5068aa0c28e27cc3a6e/module/nuls-cmd-client/
+     *      src/main/java/io/nuls/cmd/client/processor/transaction/TransferProcessor.java
      * @return
      */
     private io.nuls.base.api.provider.Result doTransferRequest(String[] args,

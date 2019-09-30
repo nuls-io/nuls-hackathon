@@ -96,7 +96,7 @@ public class SendMailController implements BaseController {
 
             newResult.setMsg(apiResult.getMessage());
 
-            String br = "<br/>";
+            String br = " ";
             String begBalStr1 = "Your beginning balance was: "  + sendBeginAvailBI;
             String andNowBalStr2 = br + "and now it is: " + sendAfterAvailBI;
             String yourTransferStr3 = br + "Your transfer of " + firstTOTALbi +  " to blockchain address: " + recMailAddyStr;

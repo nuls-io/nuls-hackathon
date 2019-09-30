@@ -36,11 +36,6 @@
             <version>1.0.0.RELEASE</version>
         </dependency>
 
-        <dependency>
-            <groupId>io.nuls.v2</groupId>
-            <artifactId>nuls-base-protocol-update</artifactId>
-            <version>1.0.0-RELEASE</version>
-        </dependency>
 
         <dependency>
             <groupId>io.nuls.v2</groupId>

@@ -1,6 +1,8 @@
 package io.nuls.controller;
 
 import io.nuls.Config;
+import io.nuls.base.api.provider.ServiceManager;
+import io.nuls.base.api.provider.transaction.TransferService;
 import io.nuls.base.api.provider.transaction.facade.TransferReq;
 import io.nuls.controller.core.BaseController;
 import io.nuls.controller.core.Result;
@@ -13,13 +15,54 @@ import io.nuls.rpc.vo.AccountBalance;
 import java.math.BigInteger;
 import java.util.Objects;
 import java.lang.System;
-import io.nuls.base.api.provider.ServiceManager;
-import io.nuls.base.api.provider.transaction.TransferService;
+
 import javax.ws.rs.Path;
 import javax.ws.rs.POST;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import io.nuls.Config;
+import io.nuls.Constant;
+import io.nuls.base.RPCUtil;
+import io.nuls.base.basic.AddressTool;
+import io.nuls.base.basic.TransactionFeeCalculator;
+import io.nuls.base.data.CoinData;
+import io.nuls.base.data.CoinFrom;
+import io.nuls.base.data.CoinTo;
+import io.nuls.base.data.Transaction;
+import io.nuls.base.signture.P2PHKSignature;
+import io.nuls.controller.core.BaseController;
+import io.nuls.controller.core.Result;
+import io.nuls.controller.vo.MailAddressData;
+import io.nuls.service.dto.MailContent;
+import io.nuls.controller.vo.SendMailReq;
+import io.nuls.core.constant.CommonCodeConstanst;
+import io.nuls.core.core.annotation.Autowired;
+import io.nuls.core.core.annotation.Component;
+import io.nuls.core.crypto.ECIESUtil;
+import io.nuls.core.crypto.ECKey;
+import io.nuls.core.crypto.HexUtil;
+import io.nuls.core.exception.NulsException;
+import io.nuls.core.exception.NulsRuntimeException;
+import io.nuls.core.rpc.util.NulsDateUtils;
+import io.nuls.rpc.AccountTools;
+import io.nuls.rpc.LegderTools;
+import io.nuls.rpc.TransactionTools;
+import io.nuls.rpc.vo.Account;
+import io.nuls.rpc.vo.AccountBalance;
+import io.nuls.service.MailAddressService;
+
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import java.io.IOException;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 /**
  * @author nmschorr based on code from zhoulijun
@@ -33,20 +76,19 @@ public class SendMailController implements BaseController {
     @Autowired
     Config config;
 
-    //@Autowired
-    //AccountTools accountTools;
+    @Autowired
+    AccountTools accountTools;
 
     @Autowired
     LegderTools legderTools;
 
-    //@Autowired
-    //TransactionTools transactionTools;
+    @Autowired
+    TransactionTools transactionTools;
 
-    //@Autowired
-    //MailAddressService mailAddressService;
+    @Autowired
+    MailAddressService mailAddressService;
 
-    //io.nuls.base.api.provider.Result doTransferRequest;
-
+    private io.nuls.base.api.provider.Result doTransferRequest;
     /**
      * @param theREQUEST : request
      * @return Result
@@ -111,6 +153,7 @@ public class SendMailController implements BaseController {
      *      src/main/java/io/nuls/cmd/client/processor/transaction/TransferProcessor.java
      *
      */
+
     private io.nuls.base.api.provider.Result doTransferRequest(String[] args,
                    BigInteger amount, Integer tempChainId, Integer tempAssetId) {
         String senderAddress = args[0];   //formAddress

@@ -2,9 +2,9 @@ package io.nuls.controller;
 
 import io.nuls.Config;
 
-import io.nuls.base.api.provider.transaction;
+import io.nuls.base.api.provider.transaction.facade.TransferReq;
 //import io.nuls.base.api.provider.Result;
-import io.nuls.base.api.provider;
+//import io.nuls.base.api.provider.Result;
 
 import io.nuls.controller.core.BaseController;
 import io.nuls.controller.core.Result;

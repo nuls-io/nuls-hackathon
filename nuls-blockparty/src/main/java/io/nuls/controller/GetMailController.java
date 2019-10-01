@@ -36,88 +36,88 @@ import  io.nuls.rpc.TransactionTools;
 @Path("/")
 @Component
 public class GetMailController implements BaseController {
-//
-//    @Autowired
-//    Config config;
-//
-//    @Autowired
-//    AccountTools accountTools;
-//
-//    @Autowired
-//    SendMailService sendMailService;
-//
-//    @Autowired
-//    MailAddressService mailAddressService;
-//
-//    @Autowired
-//    TransactionTools transactionTools;
-//    /**
-//     * 生成一个邮件收件地址
-//     * 需要扣除1个NULS作为手续费
-//     *
-//     * @param req
-//     * @return
-//     */
-//    // rename to GetMailController
-//
-//    @Path("viewMail")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    @POST
-//    public Result<MailContentData> viewMail(ViewMailReq req){
-//        return call(()->{
-//            Objects.requireNonNull(req.getMailAddress(),"address can't null");
-//            Objects.requireNonNull(req.getPassword(),"sender address password can't null");
-//            Objects.requireNonNull(req.getHash(),"hash can't null");
-//            Optional<MailAddressData> optionalMailAddress = mailAddressService.getMailAddressPubKey(req.getMailAddress());
-//            if(optionalMailAddress.isEmpty()){
-//                return new Result<>(false,"not found mail");
-//            }
-//            String address = optionalMailAddress.get().getAddress();
-//            String priKey = accountTools.getAddressPriKey(config.getChainId(),address,req.getPassword());
-//            ECKey ecKey = ECKey.fromPrivate(HexUtil.decode(priKey));
-//            MailContentData mcd = sendMailService.getMailContent(req.getHash(),ecKey,AddressTool.getAddress(address));
-//            mcd.setHash(req.getHash());
-//            return new Result<>(mcd);
-//        });
-//    }
-//
-//
-//    /**
-//     * 生成一个邮件收件地址
-//     * 需要扣除1个NULS作为手续费
-//     *
-//     * @param req
-//     * @return
-//     */
-//    @Path("getSendList")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    @POST
-//    public Result<List<MailContentData>> getSendList(GetMailListReq req){
-//        return call(()->getMailList(req,true));
-//    }
-//
-//    /**
-//     * 生成一个邮件收件地址
-//     * 需要扣除1个NULS作为手续费
-//     *
-//     * @param req
-//     * @return
-//     */
-//    @Path("getReceiveList")
-//    @Produces(MediaType.APPLICATION_JSON)
-//    @POST
-//    public Result<List<MailContentData>> getReceiveList(GetMailListReq req){
-//        return call(()-> getMailList(req,false));
-//    }
-//
-//    public Result<List<MailContentData>> getMailList(GetMailListReq req,boolean isSender) throws NulsException, IOException, CryptoException {
-//        Objects.requireNonNull(req.getAddress(),"address can't null");
-//        Objects.requireNonNull(req.getPassword(),"sender address password can't null");
-//        String priKey = accountTools.getAddressPriKey(config.getChainId(),req.getAddress(),req.getPassword());
-//        ECKey ecKey = ECKey.fromPrivate(HexUtil.decode(priKey));
-//        List<MailContentData> res = sendMailService.getMailList(req.getAddress(),ecKey,isSender);
-//        return new Result<>(res);
-//    }
+
+    @Autowired
+    Config config;
+
+    @Autowired
+    AccountTools accountTools;
+
+    @Autowired
+    SendMailService sendMailService;
+
+    @Autowired
+    MailAddressService mailAddressService;
+
+    @Autowired
+    TransactionTools transactionTools;
+    /**
+     * 生成一个邮件收件地址
+     * 需要扣除1个NULS作为手续费
+     *
+     * @param req
+     * @return
+     */
+    // rename to GetMailController
+
+    @Path("viewMail")
+    @Produces(MediaType.APPLICATION_JSON)
+    @POST
+    public Result<MailContentData> viewMail(ViewMailReq req){
+        return call(()->{
+            Objects.requireNonNull(req.getMailAddress(),"address can't null");
+            Objects.requireNonNull(req.getPassword(),"sender address password can't null");
+            Objects.requireNonNull(req.getHash(),"hash can't null");
+            Optional<MailAddressData> optionalMailAddress = mailAddressService.getMailAddressPubKey(req.getMailAddress());
+            if(optionalMailAddress.isEmpty()){
+                return new Result<>(false,"not found mail");
+            }
+            String address = optionalMailAddress.get().getAddress();
+            String priKey = accountTools.getAddressPriKey(config.getChainId(),address,req.getPassword());
+            ECKey ecKey = ECKey.fromPrivate(HexUtil.decode(priKey));
+            MailContentData mcd = sendMailService.getMailContent(req.getHash(),ecKey,AddressTool.getAddress(address));
+            mcd.setHash(req.getHash());
+            return new Result<>(mcd);
+        });
+    }
+
+
+    /**
+     * 生成一个邮件收件地址
+     * 需要扣除1个NULS作为手续费
+     *
+     * @param req
+     * @return
+     */
+    @Path("getSendList")
+    @Produces(MediaType.APPLICATION_JSON)
+    @POST
+    public Result<List<MailContentData>> getSendList(GetMailListReq req){
+        return call(()->getMailList(req,true));
+    }
+
+    /**
+     * 生成一个邮件收件地址
+     * 需要扣除1个NULS作为手续费
+     *
+     * @param req
+     * @return
+     */
+    @Path("getReceiveList")
+    @Produces(MediaType.APPLICATION_JSON)
+    @POST
+    public Result<List<MailContentData>> getReceiveList(GetMailListReq req){
+        return call(()-> getMailList(req,false));
+    }
+
+    public Result<List<MailContentData>> getMailList(GetMailListReq req,boolean isSender) throws NulsException, IOException, CryptoException {
+        Objects.requireNonNull(req.getAddress(),"address can't null");
+        Objects.requireNonNull(req.getPassword(),"sender address password can't null");
+        String priKey = accountTools.getAddressPriKey(config.getChainId(),req.getAddress(),req.getPassword());
+        ECKey ecKey = ECKey.fromPrivate(HexUtil.decode(priKey));
+        List<MailContentData> res = sendMailService.getMailList(req.getAddress(),ecKey,isSender);
+        return new Result<>(res);
+    }
 
 
 

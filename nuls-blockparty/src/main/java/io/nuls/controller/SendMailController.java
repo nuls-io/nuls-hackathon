@@ -1,29 +1,20 @@
 package io.nuls.controller;
 
 import io.nuls.Config;
-
 import io.nuls.base.api.provider.transaction.facade.TransferReq;
-//import io.nuls.base.api.provider.Result;
-//import io.nuls.base.api.provider.Result;
-
 import io.nuls.controller.core.BaseController;
 import io.nuls.controller.core.Result;
-import io.nuls.controller.vo.MailAddressData;
 import io.nuls.controller.vo.SendMailReq;
 import io.nuls.core.core.annotation.Autowired;
 import io.nuls.core.core.annotation.Component;
-import io.nuls.rpc.AccountTools;
 import io.nuls.rpc.LegderTools;
-import io.nuls.rpc.TransactionTools;
 import io.nuls.rpc.vo.AccountBalance;
-import io.nuls.service.MailAddressService;
+
 import java.math.BigInteger;
 import java.util.Objects;
-
 import java.lang.System;
 import io.nuls.base.api.provider.ServiceManager;
 import io.nuls.base.api.provider.transaction.TransferService;
-
 import javax.ws.rs.Path;
 import javax.ws.rs.POST;
 import javax.ws.rs.Produces;
@@ -42,19 +33,19 @@ public class SendMailController implements BaseController {
     @Autowired
     Config config;
 
-    @Autowired
-    AccountTools accountTools;
+    //@Autowired
+    //AccountTools accountTools;
 
     @Autowired
     LegderTools legderTools;
 
-    @Autowired
-    TransactionTools transactionTools;
+    //@Autowired
+    //TransactionTools transactionTools;
 
-    @Autowired
-    MailAddressService mailAddressService;
+    //@Autowired
+    //MailAddressService mailAddressService;
 
-    io.nuls.base.api.provider.Result doTransferRequest;
+    //io.nuls.base.api.provider.Result doTransferRequest;
 
     /**
      * @param theREQUEST : request
@@ -118,7 +109,7 @@ public class SendMailController implements BaseController {
     /**
      * //https://github.com/nuls-io/nuls-v2/blob/221c3c3007c78cc04b28f5068aa0c28e27cc3a6e/module/nuls-cmd-client/
      *      src/main/java/io/nuls/cmd/client/processor/transaction/TransferProcessor.java
-     * @return
+     *
      */
     private io.nuls.base.api.provider.Result doTransferRequest(String[] args,
                    BigInteger amount, Integer tempChainId, Integer tempAssetId) {

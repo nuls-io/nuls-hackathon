@@ -169,11 +169,14 @@ button {height:52px;width:230px;border-radius:3px;background-color:#708090;color
             </div>
 
             <br>
-            Here is the hash for your transaction:
-            <div class="row"><span id="2_res"></span></div>
-            Here is your balance information:
-            <div class="row"><span id="2b_res"></span></div>
 
+            <div class="row"><span id="2_res"></span></div>
+            <br>
+             
+            <div style="margin-right:20%;">
+               <div class="row">
+                   <span id="2b_res"></span></div>
+           </div>
         </div>  <!--end of section send-->
 
     </div> <!--end of section right-->
@@ -241,7 +244,7 @@ button {height:52px;width:230px;border-radius:3px;background-color:#708090;color
                 dataType: "json"
             });
         });
-        $("#send").click(function () {
+        $("#sendMail").click(function () {
             var address = $("#2_address").val();
             var mailAddress = $("#2_mailAddress").val();
             var password = $("#2_password").val();
@@ -260,10 +263,11 @@ button {height:52px;width:230px;border-radius:3px;background-color:#708090;color
                 success: function (data) {
                     console.log(data)
                     if (data.success) {
-                        $("#2_res").text((data.data)),
+                        $("#2_res").text(("Here is your transaction hash: " + data.data)),
                             $("#2b_res").text((data.msg));
                     } else {
-                        $("#2_res").text(data.msg)
+                        $("#2_res").text(("Something went wrong. ")),
+                           $("#2b_res").text(("Please reload page and try again."));
                     }
                 },
                 contentType: 'application/json',
@@ -278,26 +282,29 @@ button {height:52px;width:230px;border-radius:3px;background-color:#708090;color
     });
 </script>
 
-        <div class="card mx-auto" style="margin-left:60px;width:75%;">
-        
+        <div class="card mx-auto" style="margin-left:22%;margin-right:22%;">
             <div class="card-body">
                 <h3 class="card-title w3-text-cyan w3-serif ">Now what?</h3>
-                <hr>
+                
                 <p class="card-text">Show your receipt hash to your neighbor when you go to pick up your traded item.
-                    Please ask the admin to add you if you want to join us. Learn more about Nuls at
+                    Please ask the admin to add you if you want to join us. <br><br> Learn more about Nuls at
                     <a class="button_clr" href="https://nuls.io">nuls.io</a> and build your own blockchain.
                 </p>
             </div>
+        </div>
         
-            <div class="myjumbotron text-left ml-5 mr-5 pl-1 pr-5 mygradient"
+        <div class="card mx-auto" style="margin-left:4%;width:96%;">
+            <div class="card-body">
+             <br>
+             <div class="myjumbotron text-left ml-5 mr-5 pl-1 pr-5 mygradient"
                 style="padding-top:9px!important;padding-bottom:10px!important;">
                 <span style="position: relative; left: -1px; top: -5px; size:100px 23px;">
                     <img width="200" height="47" src="smlogo.gif" alt="Schorr Media" style="position: relative; top: 0;" />
                 </span>
                 <span style="font-size:20px;font-weight:500;padding-left:200px;">Thank you for using BlockParty!</span>
-            </div>
-        
-          </div>
+              </div>
+           <div>
+        </div>
 </main>
 
 </body>

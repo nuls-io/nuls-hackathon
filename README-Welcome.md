@@ -1,5 +1,7 @@
 #Welcome to Blockparty!
 
+###See screen recording of this app at:  https://nmschorr.github.io/
+
 This is a simple app using blockchain (via Nuls) to record transactions among neighbors so they can trade goods and services.
 
 In this example, there are nine people registered to trades food item like apples, oranges and eggs. Each item costs about 100000000 nuls or one "token". 

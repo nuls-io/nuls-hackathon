@@ -167,11 +167,3 @@ The debugger runs on port 8000. Go into the Run / Edit Configurations and add a 
        -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=localhost:8000
 
 These are the same settings that go into the java run instruction for the module you want to debug.
-
-
-##Known Bugs:
-
-- Possibly issues with the Maven pom.xml.
-
-
-

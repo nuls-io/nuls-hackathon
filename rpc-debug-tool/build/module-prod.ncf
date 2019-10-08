@@ -1,18 +1,8 @@
-# module.ncf
-[nuls-blockparty]
-chainId=2
-assetId=1
-mailAddressFee=100000000
-sendMailFee=50000000
-dataPath=data
-
 [JAVA]
 
 [Core]
 Language=JAVA
 Managed=1
-APP_NAME=nuls-blockparty
-VERSION=1.0.0
 
 [Libraries]
 Nulstar=0.1.0

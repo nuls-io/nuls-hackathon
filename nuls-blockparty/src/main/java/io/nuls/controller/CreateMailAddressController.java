@@ -2,7 +2,6 @@ package io.nuls.controller;
 
 import io.nuls.controller.vo.CreateMailAddressReq;
 import io.nuls.core.core.annotation.Component;
-
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
@@ -20,8 +19,6 @@ public class CreateMailAddressController {
     @POST
     public String createMailAddress(CreateMailAddressReq req) {
         System.out.println("nms just entered: " + "createMailAddress");
-//        String inAddy = req.address;
-//        String pw = req.password;
         String oBR = "{";
         String cBR = "}";
         String qT = "\"";

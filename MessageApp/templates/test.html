@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="ok" onclick="test()">
+<script type="text/javascript">
+    function test(){
+
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+           // contentType:"application/json",
+            url: "http://localhost:8080/getMessage/test",
+            data: null,
+            contentType:false,  //为false才为正确类型
+            processData:false,  //为false不需要处理转换信息
+            success: function (res) {
+                console.log(res,'返回');
+            }
+
+        });
+    }
+</script>
+</body>
+</html>
